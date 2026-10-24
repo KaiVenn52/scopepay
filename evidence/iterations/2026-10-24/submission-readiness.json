@@ -1,0 +1,37 @@
+{
+  "result": "BLOCKED",
+  "appVersion": "0.4.2",
+  "checkedAt": "2026-10-23T18:07:49.237Z",
+  "checks": [
+    {
+      "gate": "current-local-build",
+      "passed": true
+    },
+    {
+      "gate": "account-backed-sandbox-run",
+      "passed": false
+    },
+    {
+      "gate": "public-open-source-repository",
+      "passed": false
+    },
+    {
+      "gate": "public-working-demo-video",
+      "passed": false
+    },
+    {
+      "gate": "eligibility-and-registration",
+      "passed": false
+    },
+    {
+      "gate": "entry-materials-reviewed",
+      "passed": false
+    },
+    {
+      "gate": "within-submission-window",
+      "passed": true
+    }
+  ],
+  "finalSubmissionAuthorized": false,
+  "limitation": "Local consistency checks plus explicit human review attestations. Public URLs and receipts are not independently authenticated by this command. It never publishes, registers or submits."
+}

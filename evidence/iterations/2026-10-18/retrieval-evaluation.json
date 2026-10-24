@@ -1,0 +1,350 @@
+{
+  "date": "2026-10-18",
+  "timezone": "Asia/Kuala_Lumpur",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "task": "Relevant-clause retrieval only; not contractual classification",
+  "sample": "12 manually labeled synthetic English cases, not a real-user study or independent accuracy benchmark",
+  "count": 12,
+  "hitsAt1": 12,
+  "hitsAt3": 12,
+  "nonBillingDecisionsPreserved": true,
+  "results": [
+    {
+      "id": "store-exclusion",
+      "scope": "Build a five-page portfolio website. Two copy revisions are included. An online store is not included.",
+      "request": "Could we sell prints through a shop on the site?",
+      "expected": "An online store is not included.",
+      "topMatch": {
+        "scopeQuote": "An online store is not included.",
+        "similarity": 0.309914
+      },
+      "matches": [
+        {
+          "scopeQuote": "An online store is not included.",
+          "similarity": 0.309914
+        },
+        {
+          "scopeQuote": "Build a five-page portfolio website.",
+          "similarity": 0.246054
+        },
+        {
+          "scopeQuote": "Two copy revisions are included.",
+          "similarity": 0.063319
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 25
+    },
+    {
+      "id": "booking-exclusion",
+      "scope": "Design a portfolio site with a contact form. Appointment booking integrations are excluded. Basic accessibility fixes are included.",
+      "request": "Please connect Calendly so people can schedule a consultation.",
+      "expected": "Appointment booking integrations are excluded.",
+      "topMatch": {
+        "scopeQuote": "Appointment booking integrations are excluded.",
+        "similarity": 0.291064
+      },
+      "matches": [
+        {
+          "scopeQuote": "Appointment booking integrations are excluded.",
+          "similarity": 0.291064
+        },
+        {
+          "scopeQuote": "Design a portfolio site with a contact form.",
+          "similarity": 0.187064
+        },
+        {
+          "scopeQuote": "Basic accessibility fixes are included.",
+          "similarity": 0.157083
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 17
+    },
+    {
+      "id": "included-copy",
+      "scope": "Build a five-page website. The fee includes two rounds of copy revisions. E-commerce is excluded.",
+      "request": "Please change the headline during our second revision round.",
+      "expected": "The fee includes two rounds of copy revisions.",
+      "topMatch": {
+        "scopeQuote": "The fee includes two rounds of copy revisions.",
+        "similarity": 0.335754
+      },
+      "matches": [
+        {
+          "scopeQuote": "The fee includes two rounds of copy revisions.",
+          "similarity": 0.335754
+        },
+        {
+          "scopeQuote": "Build a five-page website.",
+          "similarity": 0.092835
+        },
+        {
+          "scopeQuote": "E-commerce is excluded.",
+          "similarity": 0.062034
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 12
+    },
+    {
+      "id": "hosting-separate",
+      "scope": "The project includes design and implementation. Hosting and domain fees are billed separately. Two review meetings are included.",
+      "request": "Can you pay for our domain renewal and web server?",
+      "expected": "Hosting and domain fees are billed separately.",
+      "topMatch": {
+        "scopeQuote": "Hosting and domain fees are billed separately.",
+        "similarity": 0.588349
+      },
+      "matches": [
+        {
+          "scopeQuote": "Hosting and domain fees are billed separately.",
+          "similarity": 0.588349
+        },
+        {
+          "scopeQuote": "The project includes design and implementation.",
+          "similarity": 0.031507
+        },
+        {
+          "scopeQuote": "Two review meetings are included.",
+          "similarity": 0.019339
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 15
+    },
+    {
+      "id": "translation-exclusion",
+      "scope": "Deliver the website in English. Translation and additional languages are not included. The design includes a contact form.",
+      "request": "We also need Spanish and French versions of all pages.",
+      "expected": "Translation and additional languages are not included.",
+      "topMatch": {
+        "scopeQuote": "Translation and additional languages are not included.",
+        "similarity": 0.56485
+      },
+      "matches": [
+        {
+          "scopeQuote": "Translation and additional languages are not included.",
+          "similarity": 0.56485
+        },
+        {
+          "scopeQuote": "Deliver the website in English.",
+          "similarity": 0.480421
+        },
+        {
+          "scopeQuote": "The design includes a contact form.",
+          "similarity": 0.104535
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 14
+    },
+    {
+      "id": "included-responsive",
+      "scope": "Deliver a responsive website for desktop and mobile. Native iOS and Android applications are excluded. The fee includes a single contact form.",
+      "request": "Make sure the pages work on phones as well as large screens.",
+      "expected": "Deliver a responsive website for desktop and mobile.",
+      "topMatch": {
+        "scopeQuote": "Deliver a responsive website for desktop and mobile.",
+        "similarity": 0.454788
+      },
+      "matches": [
+        {
+          "scopeQuote": "Deliver a responsive website for desktop and mobile.",
+          "similarity": 0.454788
+        },
+        {
+          "scopeQuote": "Native iOS and Android applications are excluded.",
+          "similarity": 0.229419
+        },
+        {
+          "scopeQuote": "The fee includes a single contact form.",
+          "similarity": 0.010741
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 16
+    },
+    {
+      "id": "native-app-exclusion",
+      "scope": "Deliver a responsive website for desktop and mobile. Native iOS and Android applications are excluded. The fee includes a single contact form.",
+      "request": "Can you also publish an iPhone application in the App Store?",
+      "expected": "Native iOS and Android applications are excluded.",
+      "topMatch": {
+        "scopeQuote": "Native iOS and Android applications are excluded.",
+        "similarity": 0.475948
+      },
+      "matches": [
+        {
+          "scopeQuote": "Native iOS and Android applications are excluded.",
+          "similarity": 0.475948
+        },
+        {
+          "scopeQuote": "Deliver a responsive website for desktop and mobile.",
+          "similarity": 0.252793
+        },
+        {
+          "scopeQuote": "The fee includes a single contact form.",
+          "similarity": 0.061627
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 16
+    },
+    {
+      "id": "included-defects",
+      "scope": "Defects in the agreed deliverables will be corrected for thirty days after handover. New feature development is outside the fixed fee. Hosting is supplied by the client.",
+      "request": "The agreed contact form is broken a week after launch. Can you fix it?",
+      "expected": "Defects in the agreed deliverables will be corrected for thirty days after handover.",
+      "topMatch": {
+        "scopeQuote": "Defects in the agreed deliverables will be corrected for thirty days after handover.",
+        "similarity": 0.267106
+      },
+      "matches": [
+        {
+          "scopeQuote": "Defects in the agreed deliverables will be corrected for thirty days after handover.",
+          "similarity": 0.267106
+        },
+        {
+          "scopeQuote": "New feature development is outside the fixed fee.",
+          "similarity": 0.241016
+        },
+        {
+          "scopeQuote": "Hosting is supplied by the client.",
+          "similarity": 0.062038
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 20
+    },
+    {
+      "id": "meeting-limit",
+      "scope": "The project includes two review calls. Website content is supplied by the client. Search engine marketing is excluded.",
+      "request": "Can we have a daily check-in meeting for the next month?",
+      "expected": "The project includes two review calls.",
+      "topMatch": {
+        "scopeQuote": "The project includes two review calls.",
+        "similarity": 0.173498
+      },
+      "matches": [
+        {
+          "scopeQuote": "The project includes two review calls.",
+          "similarity": 0.173498
+        },
+        {
+          "scopeQuote": "Website content is supplied by the client.",
+          "similarity": -0.003936
+        },
+        {
+          "scopeQuote": "Search engine marketing is excluded.",
+          "similarity": -0.006348
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 19
+    },
+    {
+      "id": "analytics-separate",
+      "scope": "Build five static pages. Advanced analytics and conversion tracking are not included. A basic contact form is included.",
+      "request": "Please add a marketing attribution dashboard and track ad conversions.",
+      "expected": "Advanced analytics and conversion tracking are not included.",
+      "topMatch": {
+        "scopeQuote": "Advanced analytics and conversion tracking are not included.",
+        "similarity": 0.439012
+      },
+      "matches": [
+        {
+          "scopeQuote": "Advanced analytics and conversion tracking are not included.",
+          "similarity": 0.439012
+        },
+        {
+          "scopeQuote": "A basic contact form is included.",
+          "similarity": 0.083518
+        },
+        {
+          "scopeQuote": "Build five static pages.",
+          "similarity": 0.003924
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 14
+    },
+    {
+      "id": "content-owner",
+      "scope": "The client will supply final text and photography. The freelancer will design and implement the site. The fixed price includes two review rounds.",
+      "request": "Can you write all the page copy and organize a photoshoot?",
+      "expected": "The client will supply final text and photography.",
+      "topMatch": {
+        "scopeQuote": "The client will supply final text and photography.",
+        "similarity": 0.41022
+      },
+      "matches": [
+        {
+          "scopeQuote": "The client will supply final text and photography.",
+          "similarity": 0.41022
+        },
+        {
+          "scopeQuote": "The freelancer will design and implement the site.",
+          "similarity": 0.189906
+        },
+        {
+          "scopeQuote": "The fixed price includes two review rounds.",
+          "similarity": 0.066927
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 15
+    },
+    {
+      "id": "revisions-numeric-limit",
+      "scope": "Two design revision rounds are included. The project does not include a store. The final deliverable is a responsive website.",
+      "request": "We are on revision four and want another complete design pass.",
+      "expected": "Two design revision rounds are included.",
+      "topMatch": {
+        "scopeQuote": "Two design revision rounds are included.",
+        "similarity": 0.585347
+      },
+      "matches": [
+        {
+          "scopeQuote": "Two design revision rounds are included.",
+          "similarity": 0.585347
+        },
+        {
+          "scopeQuote": "The final deliverable is a responsive website.",
+          "similarity": 0.249261
+        },
+        {
+          "scopeQuote": "The project does not include a store.",
+          "similarity": 0.094753
+        }
+      ],
+      "hitAt1": true,
+      "hitAt3": true,
+      "classification": "unclear",
+      "inferenceMs": 13
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+import { chromium } from '@playwright/test';
+import assert from 'node:assert/strict';
+import { mkdir, mkdtemp, rm, copyFile, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createApp } from '../server.mjs';
+import { loadEmbeddingModel } from '../lib/semantic.mjs';
+import { localDate } from '../lib/time.mjs';
+
+const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const output = path.join(root, 'delivery', `rehearsal-${localDate()}`);
+await mkdir(output, { recursive: true });
+await loadEmbeddingModel({ localOnly: true });
+const directory = await mkdtemp(path.join(tmpdir(), 'scopepay-recording-'));
+const server = await createApp({ env: { AI_MODE: 'local-embeddings', PAYPAL_MODE: 'mock' }, directory });
+let browser, context, video;
+const errors = [], chapters = [];
+try {
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  browser = await chromium.launch({ channel: 'chrome', headless: true });
+  context = await browser.newContext({ viewport: { width: 1440, height: 900 }, recordVideo: { dir: output, size: { width: 1440, height: 900 } } });
+  const page = await context.newPage(); video = page.video();
+  const start = Date.now();
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('console', message => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
+  async function chapter(caption, seconds = 7) {
+    console.log(caption); chapters.push({ atSeconds: Math.round((Date.now() - start) / 1000), caption });
+    // Disclosed subtitle overlay only. Product records and controls are not fabricated.
+    await page.evaluate(caption => {
+      let banner = document.querySelector('#recording-disclosure');
+      if (!banner) { banner = document.createElement('div'); banner.id = 'recording-disclosure'; document.body.append(banner); }
+      banner.textContent = `SIMULATION REHEARSAL · REAL LOCAL AI · NO PAYPAL API CALLS\n${caption}`;
+      Object.assign(banner.style, { position: 'fixed', top: '0', left: '0', right: '0', zIndex: '9999', padding: '12px 28px', background: '#122b36', color: '#fff', font: '18px/1.5 Arial,sans-serif', whiteSpace: 'pre-line', boxShadow: '0 2px 12px #0004' });
+    }, caption);
+    await new Promise(resolve => setTimeout(resolve, seconds * 1000));
+  }
+  await page.goto(base); await page.locator('#connection').filter({ hasText: 'Mock payments' }).waitFor();
+  await chapter('ScopePay: agree on the extra work before collecting it.');
+  await page.getByRole('button', { name: 'Load example' }).click();
+  await page.locator('#sources').scrollIntoViewIfNeeded();
+  await chapter('A store, booking, and a headline revision arrive after the scope is agreed.');
+  await page.getByRole('button', { name: 'Compare the scope' }).click();
+  await page.locator('.change').first().waitFor();
+  await page.locator('.review-panel').scrollIntoViewIfNeeded();
+  await chapter('Real local MiniLM retrieves the original wording. Similarity is not a billing decision.');
+  await page.locator('[data-decision]').nth(0).selectOption('additional');
+  await page.locator('[data-decision]').nth(1).selectOption('clarify');
+  await page.locator('[data-decision]').nth(2).selectOption('included');
+  await page.locator('[data-title]').first().fill('Add a 12-product print store');
+  await page.locator('[data-rationale]').first().fill('The agreed scope excludes an online store. This adds a product catalog and checkout flow.');
+  await page.locator('[data-price]').first().fill('240.00');
+  await page.locator('#recipient').fill('buyer@example.test');
+  await page.locator('#confirmed').check();
+  await page.locator('#approval-form').scrollIntoViewIfNeeded();
+  await chapter('The freelancer prices only the store. Included work and unclear requests stay unbilled.');
+  await page.getByRole('button', { name: 'Prepare client proposal' }).click();
+  await page.locator('#approved').getByText('Scope reviewed. Price set.').waitFor();
+  await page.locator('#client-panel').scrollIntoViewIfNeeded();
+  await chapter('This freezes the version and amount. Invoicing stays locked until client acceptance.');
+  const clientPath = await page.locator('#client-link').getAttribute('href');
+  await page.goto(base + clientPath);
+  await page.locator('#proposal-content').getByText('Add a 12-product print store', { exact: true }).waitFor();
+  await page.locator('#proposal-content').scrollIntoViewIfNeeded();
+  await chapter('The client sees the extra deliverable and the work that has no extra charge.');
+  await page.locator('#respondent').fill('Example Client'); await page.locator('#accept-confirm').check();
+  await page.getByRole('button', { name: 'Accept scope & price' }).click();
+  await page.locator('#response-result').getByText('Scope agreed. Thank you.').waitFor();
+  await page.locator('#response-result').scrollIntoViewIfNeeded();
+  await chapter('Acceptance refers to this exact proposal. This local prototype does not authenticate identity.');
+  await page.goto(base); await page.locator('#client-status').filter({ hasText: 'Accepted locally' }).waitFor();
+  await page.getByRole('button', { name: 'Create draft invoice' }).click();
+  await page.locator('#invoice-description').filter({ hasText: 'DRAFT' }).waitFor();
+  await page.getByRole('button', { name: 'Issue invoice' }).click();
+  await page.locator('#invoice-description').filter({ hasText: 'SENT' }).waitFor();
+  await page.locator('#invoice-panel').scrollIntoViewIfNeeded();
+  await chapter('Payment is simulated in this rehearsal. Actual PayPal sandbox validation is still pending.');
+  await page.locator('.simulation-tools > summary').click();
+  await page.getByRole('button', { name: 'Simulate partial payment' }).click();
+  await page.locator('#invoice-description').filter({ hasText: 'PARTIALLY PAID' }).waitFor();
+  assert.match(await page.locator('#invoice-description').innerText(), /Not settled/);
+  await chapter('A partial payment remains unsettled. A payment event alone must not close the invoice.');
+  await page.locator('.simulation-tools > summary').click();
+  await page.getByRole('button', { name: 'Simulate fully paid' }).click();
+  await page.locator('#invoice-description').filter({ hasText: 'Fully paid' }).waitFor();
+  await page.locator('#client-panel').scrollIntoViewIfNeeded();
+  const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Export evidence receipt' }).click()]);
+  await download.saveAs(path.join(output, 'synthetic-receipt.json'));
+  await chapter('The redacted receipt links version, client decision and stored state. It is not payment attestation.');
+  await page.screenshot({ path: path.join(output, 'poster.png') });
+  await chapter('An AI can find the clause. It should not decide what your client owes.', 9);
+  assert.deepEqual(errors, []);
+  await context.close(); context = null;
+  await copyFile(await video.path(), path.join(output, 'ScopePay-SIMULATION-rehearsal.webm'));
+  await writeFile(path.join(output, 'recording.json'), JSON.stringify({ date: localDate(), result: 'PASS', kind: 'Continuous local browser screen recording with disclosed subtitle overlay; rehearsal only', realLocalAI: true, paypal: 'mock only; no external API calls', finalSubmissionVideo: false, audio: false, chapters, errors }, null, 2));
+  console.log(`Saved rehearsal to ${output}`);
+} finally {
+  if (context) await context.close(); if (browser) await browser.close();
+  await new Promise(resolve => server.close(resolve)); await rm(directory, { recursive: true, force: true });
+}

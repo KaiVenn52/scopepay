@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-24",
+  "timezone": "Asia/Kuala_Lumpur",
+  "filesHashed": 205,
+  "brokenLocalLinks": 0,
+  "manifest": "evidence/SHA256SUMS.txt",
+  "excludes": [
+    "node_modules",
+    ".git",
+    "data",
+    ".env",
+    ".model-cache",
+    "delivery",
+    "test-results",
+    "manifest and this verification record"
+  ]
+}

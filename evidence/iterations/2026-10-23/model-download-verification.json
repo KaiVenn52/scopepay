@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-23",
+  "result": "PASS",
+  "kind": "Fresh downloads with pinned size and SHA-256 checks; no cache copy",
+  "assets": [
+    {
+      "file": "config.json",
+      "source": "verified-download"
+    },
+    {
+      "file": "onnx/model_quantized.onnx",
+      "source": "verified-download"
+    },
+    {
+      "file": "tokenizer.json",
+      "source": "verified-download"
+    },
+    {
+      "file": "tokenizer_config.json",
+      "source": "verified-download"
+    }
+  ]
+}

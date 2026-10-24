@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-24",
+  "kind": "Actual account-backed PayPal sandbox integration; synthetic scope and local client response",
+  "actions": [
+    {
+      "action": "state",
+      "method": "GET",
+      "httpStatus": 200
+    },
+    {
+      "action": "refresh",
+      "method": "POST",
+      "httpStatus": 200
+    },
+    {
+      "action": "receipt",
+      "method": "GET",
+      "httpStatus": 200
+    }
+  ],
+  "buyerPaymentValidated": false,
+  "invoiceCreated": true,
+  "invoiceId": "INV2-B5KW-9W4K-LJPW-TLGD",
+  "result": "INVOICE_VERIFIED",
+  "status": "UNPAID",
+  "providerPaidStatusObserved": false,
+  "bindingVerified": true,
+  "paymentLinkAvailable": true,
+  "totalCents": 24000,
+  "currency": "USD",
+  "clientIdentityVerified": false,
+  "localReviewId": "fc8c5856-9799-4365-955e-ba0f11c12583",
+  "providerRequests": [
+    {
+      "at": "2026-10-23T17:56:25.644Z",
+      "method": "POST",
+      "path": "/v1/oauth2/token",
+      "httpStatus": 200,
+      "durationMs": 2829,
+      "debugId": "f4735015912c4",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:27.445Z",
+      "method": "POST",
+      "path": "/v2/invoicing/invoices",
+      "httpStatus": 201,
+      "durationMs": 1784,
+      "debugId": "f882465b0c4f4",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:28.092Z",
+      "method": "POST",
+      "path": "/v1/oauth2/token",
+      "httpStatus": 200,
+      "durationMs": 620,
+      "debugId": "f4767803245a5",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:28.786Z",
+      "method": "GET",
+      "path": "/v2/invoicing/invoices/INV2-B5KW-9W4K-LJPW-TLGD",
+      "httpStatus": 200,
+      "durationMs": 691,
+      "debugId": "f476780de2afd",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:29.280Z",
+      "method": "POST",
+      "path": "/v1/oauth2/token",
+      "httpStatus": 200,
+      "durationMs": 490,
+      "debugId": "f102096fa49a1",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:30.310Z",
+      "method": "POST",
+      "path": "/v2/invoicing/invoices/INV2-B5KW-9W4K-LJPW-TLGD/send",
+      "httpStatus": 200,
+      "durationMs": 1027,
+      "debugId": "f102096c4d898",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:30.693Z",
+      "method": "POST",
+      "path": "/v1/oauth2/token",
+      "httpStatus": 200,
+      "durationMs": 381,
+      "debugId": "f6371731d27f1",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:32.111Z",
+      "method": "GET",
+      "path": "/v2/invoicing/invoices/INV2-B5KW-9W4K-LJPW-TLGD",
+      "httpStatus": 200,
+      "durationMs": 1416,
+      "debugId": "f684252b905e4",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:32.867Z",
+      "method": "POST",
+      "path": "/v1/oauth2/token",
+      "httpStatus": 200,
+      "durationMs": 739,
+      "debugId": "f357352c1e20c",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T17:56:33.578Z",
+      "method": "GET",
+      "path": "/v2/invoicing/invoices/INV2-B5KW-9W4K-LJPW-TLGD",
+      "httpStatus": 200,
+      "durationMs": 708,
+      "debugId": "f966582d254e6",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T18:15:28.238Z",
+      "method": "POST",
+      "path": "/v1/oauth2/token",
+      "httpStatus": 200,
+      "durationMs": 7116,
+      "debugId": "f8482757827e9",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    },
+    {
+      "at": "2026-10-23T18:15:30.324Z",
+      "method": "GET",
+      "path": "/v2/invoicing/invoices/INV2-B5KW-9W4K-LJPW-TLGD",
+      "httpStatus": 200,
+      "durationMs": 2072,
+      "debugId": "f38385871aa0b",
+      "kind": "actual-account-backed-sandbox-request; headers, credentials and bodies omitted"
+    }
+  ]
+}

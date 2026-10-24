@@ -1,0 +1,84 @@
+{
+  "id": "45d5f127-3ad0-471e-ba9b-a48c2d876159",
+  "createdAt": "2026-10-23T18:02:09.930Z",
+  "scope": "Build a five-page portfolio website: Home, About, Work, Services, and Contact. Includes one contact form and two rounds of copy revisions. An online store, multilingual content, and booking integrations are not included.",
+  "request": "Can you also add an online store for 12 prints?\nPlease connect Calendly so visitors can book a call.\nCan we change the About page headline in our second revision?",
+  "sourceHash": "bb0180af2fd03b4638f783af424106d75dfd4066ec36a81e6960e04a249b4285",
+  "parentId": null,
+  "revisionNumber": 1,
+  "mode": "local-embeddings",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "notice": "Real local AI retrieves related scope clauses. It does not decide contractual inclusion or price. All findings require human review.",
+  "items": [
+    {
+      "id": "90d6f021-f148-4ab3-abcf-9b8e0dc09f67",
+      "title": "Can you also add an online store for 12 prints?",
+      "scopeQuote": "An online store, multilingual content, and booking integrations are not included.",
+      "requestQuote": "Can you also add an online store for 12 prints?",
+      "classification": "unclear",
+      "reason": "Local AI retrieved the closest scope passage (cosine similarity 0.322). Similarity measures topic overlap, not inclusion, exclusion, confidence, or an obligation to pay. Review the original agreement before selecting this change.",
+      "semanticMatches": [
+        {
+          "scopeQuote": "An online store, multilingual content, and booking integrations are not included.",
+          "similarity": 0.322034
+        },
+        {
+          "scopeQuote": "Build a five-page portfolio website: Home, About, Work, Services, and Contact.",
+          "similarity": 0.23817
+        },
+        {
+          "scopeQuote": "Includes one contact form and two rounds of copy revisions.",
+          "similarity": 0.184247
+        }
+      ]
+    },
+    {
+      "id": "3c9cff60-46ce-4cb2-b226-3e3b0bd056d3",
+      "title": "Please connect Calendly so visitors can book a call.",
+      "scopeQuote": "An online store, multilingual content, and booking integrations are not included.",
+      "requestQuote": "Please connect Calendly so visitors can book a call.",
+      "classification": "unclear",
+      "reason": "Local AI retrieved the closest scope passage (cosine similarity 0.254). Similarity measures topic overlap, not inclusion, exclusion, confidence, or an obligation to pay. Review the original agreement before selecting this change.",
+      "semanticMatches": [
+        {
+          "scopeQuote": "An online store, multilingual content, and booking integrations are not included.",
+          "similarity": 0.254022
+        },
+        {
+          "scopeQuote": "Build a five-page portfolio website: Home, About, Work, Services, and Contact.",
+          "similarity": 0.223394
+        },
+        {
+          "scopeQuote": "Includes one contact form and two rounds of copy revisions.",
+          "similarity": 0.206883
+        }
+      ]
+    },
+    {
+      "id": "b3ca917d-d49a-4d41-8e44-39f528f9cf18",
+      "title": "Can we change the About page headline in our second revision?",
+      "scopeQuote": "Includes one contact form and two rounds of copy revisions.",
+      "requestQuote": "Can we change the About page headline in our second revision?",
+      "classification": "unclear",
+      "reason": "Local AI retrieved the closest scope passage (cosine similarity 0.242). Similarity measures topic overlap, not inclusion, exclusion, confidence, or an obligation to pay. Review the original agreement before selecting this change.",
+      "semanticMatches": [
+        {
+          "scopeQuote": "Includes one contact form and two rounds of copy revisions.",
+          "similarity": 0.241956
+        },
+        {
+          "scopeQuote": "Build a five-page portfolio website: Home, About, Work, Services, and Contact.",
+          "similarity": 0.098497
+        },
+        {
+          "scopeQuote": "An online store, multilingual content, and booking integrations are not included.",
+          "similarity": 0.017263
+        }
+      ]
+    }
+  ],
+  "approval": null,
+  "invoice": null,
+  "events": []
+}

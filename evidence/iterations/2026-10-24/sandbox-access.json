@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-24",
+  "kind": "Authenticated PayPal Developer UI observation, not an API or payment result",
+  "developerDashboardObserved": true,
+  "sandboxModeObserved": true,
+  "existingDefaultRestAppObserved": true,
+  "businessSandboxAccountObserved": true,
+  "invoicingCheckboxEnabledObserved": true,
+  "localIgnoredConfigurationTemplateCreated": true,
+  "oauthValidated": true,
+  "invoiceCreationValidated": true,
+  "buyerPaymentValidated": false,
+  "nextGate": "Independent Personal sandbox buyer login succeeded. Invoice checkout opens a persistent about:blank popup before any confirmation. Manual-click comparison pending; authoritative invoice remains UNPAID.",
+  "separatePersonalSandboxBuyerObserved": true,
+  "sandboxAccountTypesObserved": [
+    "Business",
+    "Personal"
+  ],
+  "existingSecretReadForAuthorizedLocalConfiguration": true,
+  "credentialsPublished": false,
+  "personalSandboxBuyerLoginValidated": true
+}

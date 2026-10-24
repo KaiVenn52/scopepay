@@ -1,0 +1,1 @@
+Jina Reader returned HTTP 403 challenge content. Not accepted as rules evidence. See docs/RULES-RECHECK-2026-10-24.md for the successfully verified official sources.

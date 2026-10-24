@@ -1,0 +1,50 @@
+{
+  "schema": "scopepay-evidence-receipt/v1",
+  "appVersion": "0.4.0",
+  "exportedAt": "2026-10-22T09:15:38.133Z",
+  "evidenceBasis": "Redacted projection of local records; no provider call is made during export.",
+  "proposal": {
+    "fingerprint": "fe6a3db53b0082df178a935781750517ca2923f0fe0babe91b22b63a5fb90860",
+    "sourceFingerprint": "bb0180af2fd03b4638f783af424106d75dfd4066ec36a81e6960e04a249b4285",
+    "revision": 1,
+    "hasParent": false,
+    "state": "active",
+    "currency": "USD",
+    "totalCents": 24000,
+    "chargedItems": 1,
+    "includedItems": 1,
+    "clarificationItems": 1
+  },
+  "analysis": {
+    "mode": "offline",
+    "limitation": "Retrieval and quoted text do not establish contractual entitlement or model accuracy."
+  },
+  "client": {
+    "decision": "accepted",
+    "matchesProposal": true,
+    "identityVerified": false,
+    "acceptedActiveRevision": true
+  },
+  "invoice": {
+    "mode": "mock",
+    "status": "PAID",
+    "idFingerprint": "d5ca395ec3366440e4e61465abb1539c0f6b9b71161fa510937fa9bdf24c6d98",
+    "lastCheckedAt": "2026-10-22T09:15:37.974Z",
+    "proposalBindingChecked": false,
+    "bindingCheckedAt": null,
+    "paymentEvidence": "simulation-only",
+    "fullyPaidInStoredSnapshot": true,
+    "realMoneyEvidence": false
+  },
+  "uncertainCreation": false,
+  "privacy": "Names, emails, proposal access tokens, source excerpts, notes, invoice URLs and raw invoice IDs are omitted. Fingerprints and amounts remain potentially linkable.",
+  "limitations": [
+    "Local records can be edited by their owner. This receipt is not a signature or notarized payment proof.",
+    "A checksum detects content changes; it does not authenticate the author or validate PayPal acceptance.",
+    "No public deployment, registration, production payment or competition submission is established."
+  ],
+  "checksum": {
+    "algorithm": "SHA-256 of JSON.stringify(content), preserving property order; excludes checksum",
+    "value": "d1220cd80eeaf4c1a8469b667bd3150200a9907b952e135245ff0f230d1c2def"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "scopepay-evidence-receipt/v1",
+  "appVersion": "0.4.1",
+  "exportedAt": "2026-10-23T06:59:38.086Z",
+  "evidenceBasis": "Redacted projection of local records; no provider call is made during export.",
+  "proposal": {
+    "fingerprint": "8f9ff44a2067dc31a536fe79f896dfb1cc4a62e38875ba476b03cd6491b330c6",
+    "sourceFingerprint": "bb0180af2fd03b4638f783af424106d75dfd4066ec36a81e6960e04a249b4285",
+    "revision": 1,
+    "hasParent": false,
+    "state": "active",
+    "currency": "USD",
+    "totalCents": 24000,
+    "chargedItems": 1,
+    "includedItems": 1,
+    "clarificationItems": 1
+  },
+  "analysis": {
+    "mode": "local-embeddings",
+    "limitation": "Retrieval and quoted text do not establish contractual entitlement or model accuracy."
+  },
+  "client": {
+    "decision": "accepted",
+    "matchesProposal": true,
+    "identityVerified": false,
+    "acceptedActiveRevision": true
+  },
+  "invoice": {
+    "mode": "mock",
+    "status": "PAID",
+    "idFingerprint": "a74199fd7ee6862100ae9b020cb46b1f8b19941f5312f141e4de2ecaaeb95435",
+    "lastCheckedAt": "2026-10-23T06:59:38.002Z",
+    "proposalBindingChecked": false,
+    "bindingCheckedAt": null,
+    "paymentEvidence": "simulation-only",
+    "fullyPaidInStoredSnapshot": true,
+    "realMoneyEvidence": false
+  },
+  "uncertainCreation": false,
+  "privacy": "Names, emails, proposal access tokens, source excerpts, notes, invoice URLs and raw invoice IDs are omitted. Fingerprints and amounts remain potentially linkable.",
+  "limitations": [
+    "Local records can be edited by their owner. This receipt is not a signature or notarized payment proof.",
+    "A checksum detects content changes; it does not authenticate the author or validate PayPal acceptance.",
+    "No public deployment, registration, production payment or competition submission is established."
+  ],
+  "checksum": {
+    "algorithm": "SHA-256 of JSON.stringify(content), preserving property order; excludes checksum",
+    "value": "617032940d009c47f58a7aa4a34ce64afeb72a17ac6d4ae3a9a2a4a1dafcd480"
+  }
+}

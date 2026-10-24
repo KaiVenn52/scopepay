@@ -1,0 +1,21 @@
+{
+  "schema": "scopepay-sandbox-preflight/v1",
+  "checkedAt": "2026-10-22T09:14:11.674Z",
+  "endpoint": "https://api-m.sandbox.paypal.com",
+  "checks": {
+    "sandboxMode": false,
+    "clientIdPresent": false,
+    "clientSecretPresent": false,
+    "merchantEmailValid": false
+  },
+  "configured": false,
+  "oauth": {
+    "requested": false,
+    "attempted": false,
+    "result": "not-requested"
+  },
+  "invoiceCapabilityVerified": false,
+  "buyerPaymentVerified": false,
+  "invoiceWrites": 0,
+  "limitation": "Configuration and OAuth do not establish merchant identity, invoicing capability, a buyer payment or settlement. No invoice is created by this command."
+}

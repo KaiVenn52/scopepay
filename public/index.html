@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ScopePay — Scope, agreed.</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<header><a class="brand" href="/" aria-label="ScopePay home"><span class="mark">s.</span>ScopePay</a><span class="header-note">A little clarity. Before the extra work.</span><span id="connection">Connecting…</span></header>
+<main>
+  <div class="intro"><div><h1>“Just one more thing.”<br><span>Give it a scope.</span></h1><p>Agree on the extra work before you invoice it.<br>Evidence for you. A clear proposal for your client.</p></div><div class="intro-aside"><span class="large-number" id="step-number">01 / 04</span><p>Compare → Review → Agree → Invoice</p><a href="#sources">Start with the agreement ↓</a></div></div>
+  <div id="mode-notice" class="notice" role="status"></div>
+  <div id="error" class="error" role="alert" hidden></div>
+  <div id="revision-notice" class="notice" role="status" hidden></div>
+  <ol class="workflow-steps" aria-label="Change order progress"><li data-step="1">Compare sources</li><li data-step="2">Review & price</li><li data-step="3">Client agreement</li><li data-step="4">PayPal invoice</li></ol>
+  <div class="workspace">
+    <section id="sources" class="source-panel"><div class="section-heading"><h2>The paper trail</h2><button id="sample" class="text-button" type="button">Load example ↗</button></div>
+      <form id="review-form"><label for="scope">Original agreement <span>What was included?</span></label><textarea id="scope" rows="7" maxlength="12000" required placeholder="Paste the agreed deliverables, exclusions, and revision limits."></textarea>
+      <label for="request">The new ask <span>What changed?</span></label><textarea id="request" rows="5" maxlength="12000" required placeholder="Paste the client's new request. Keep the original wording."></textarea>
+      <p class="helper">Use synthetic or permission-cleared text. Analysis runs locally; no client documents are sent to a hosted AI service.</p><button id="analyze" class="primary" type="submit">Compare the scope <span>→</span></button></form>
+    </section>
+    <section class="review-panel"><div class="section-heading"><h2>The change order</h2><span id="review-label">Awaiting sources</span></div>
+      <div id="empty"><span class="empty-symbol">↳</span><h3>The extra work starts here.</h3><p>Compare the original scope with the new ask.<br>Review the evidence before setting a price.</p><div class="empty-line"></div><p class="small">Nothing gets invoiced without your confirmation.</p></div>
+      <form id="approval-form" hidden><p id="analysis-note" class="helper"></p><p id="decision-summary" class="decision-summary" aria-live="polite">Review every request before preparing the proposal.</p><div id="items"></div><div class="approval-fields"><label for="recipient">Client / sandbox buyer email</label><input id="recipient" type="email" required placeholder="buyer@example.test" maxlength="254"><p class="helper">A separate client review step follows. Nothing is emailed or charged automatically.</p><div class="total"><span>Additional work · USD</span><strong id="total">$0.00</strong></div><label class="confirm"><input id="confirmed" type="checkbox" required><span>I reviewed every request, the additional work, prices, and recipient. Freeze this revision for the client's review.</span></label><button class="primary" id="approve" type="submit">Prepare client proposal <span>→</span></button></div></form>
+      <div id="approved" hidden></div>
+    </section>
+  </div>
+  <section id="client-panel" class="client-panel" hidden aria-labelledby="client-heading"><div class="section-heading"><h2 id="client-heading">Agree before you invoice.</h2><span id="client-status"></span></div><p id="client-description"></p><div id="client-actions"></div><div id="client-response"></div></section>
+  <section id="invoice-panel" class="invoice-panel"><div><h2>From agreed scope to invoice.</h2><p id="invoice-description">Review and price the extra work first.</p></div><div id="invoice-actions"></div><div id="invoice-details"></div></section>
+  <section class="history"><h2>Recent reviews</h2><div id="history"></div></section>
+  <footer><span>ScopePay / Local prototype</span><span>No automatic pricing. No automatic charges.</span></footer>
+</main></body></html>

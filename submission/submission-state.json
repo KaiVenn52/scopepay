@@ -1,0 +1,23 @@
+{
+  "localQaFile": "evidence/iterations/2026-10-24/after/real-ai-ui-verification.json",
+  "sandbox": {
+    "accountBackedRunReviewed": false,
+    "receiptFile": null
+  },
+  "repository": {
+    "url": null,
+    "anonymousAccessReviewed": false,
+    "licenseVisibleReviewed": false
+  },
+  "video": {
+    "url": null,
+    "durationSeconds": null,
+    "publicAccessReviewed": false,
+    "actualSandboxFootageReviewed": false
+  },
+  "entrant": {
+    "eligibilityConfirmed": true,
+    "paypalEventRegistrationConfirmed": false
+  },
+  "finalMaterialsReviewed": false
+}

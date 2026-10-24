@@ -1,0 +1,38 @@
+{
+  "appVersion": "0.4.1",
+  "checkedDate": "2026-10-23",
+  "timezone": "Asia/Kuala_Lumpur",
+  "result": "PASS",
+  "checks": [
+    "page identity",
+    "meaningful screen",
+    "no framework overlay",
+    "actual local model retrieval and three sourced candidates",
+    "stale-source approval rejected",
+    "explicit human approval with immutable price",
+    "included work and clarification are explicitly not billed",
+    "invoice remains locked before client acceptance",
+    "separate client page accepts exact revision with unverified identity disclosed",
+    "partial payment remains unsettled",
+    "pending payment remains unsettled",
+    "paid simulation explicitly labeled",
+    "downloaded evidence receipt is redacted, checksum-valid and explicitly simulated",
+    "reload preserves approved invoice",
+    "mobile has no horizontal overflow",
+    "client requests changes and invoice remains locked",
+    "linked revision preserves the objection and retires the old proposal",
+    "new revision requires its own acceptance at the updated price",
+    "no browser console warnings or errors"
+  ],
+  "errors": [],
+  "browser": "Playwright, installed Google Chrome, fresh headless profile",
+  "reason": "Browser plugin not available",
+  "viewports": [
+    "1440x1000",
+    "390x844"
+  ],
+  "providers": {
+    "payments": "mock only",
+    "analysis": "actual local MiniLM inference"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "result": "PASS",
+  "appVersion": "0.4.2",
+  "actualLocalAI": true,
+  "actualPayPalReadOnlyRefresh": true,
+  "invoiceState": "UNPAID",
+  "invoiceCreatedDuringRecording": false,
+  "buyerPaymentVerified": false,
+  "clientIdentityVerified": false,
+  "durationSeconds": 133.525669,
+  "bytes": 3139870,
+  "voice": "Microsoft Zira Desktop synthetic narration; no impersonation",
+  "browserPath": "Browser plugin not available; Playwright only on owned loopback application",
+  "chapters": [
+    {
+      "id": "intro",
+      "atSeconds": 0.792,
+      "caption": "ScopePay · agree on the extra work before you invoice",
+      "voice": "Just one more thing. For a freelancer, that small request can quietly change the entire job. ScopePay turns it into a clear conversation before an invoice.",
+      "seconds": 10.277551
+    },
+    {
+      "id": "sources",
+      "atSeconds": 12.654,
+      "caption": "One agreement. Three requests. Different billing decisions.",
+      "voice": "This synthetic website project includes two copy revisions, but excludes an online store and booking integrations. The client asks for a store, a booking tool, and another headline revision.",
+      "seconds": 11.497279
+    },
+    {
+      "id": "retrieval",
+      "atSeconds": 25.54,
+      "caption": "Real local MiniLM inference · original words, visible evidence",
+      "voice": "A real MiniLM model runs locally to retrieve the relevant agreement clauses. Every quotation must exist in the source. Similarity helps find evidence. It does not decide what the client owes.",
+      "seconds": 12.162222
+    },
+    {
+      "id": "decision",
+      "atSeconds": 39.054,
+      "caption": "Human decisions: additional, clarify, included",
+      "voice": "I price the store at two hundred forty dollars. Booking stays open for clarification. The headline revision is already included. The model cannot invent a price or approve a charge.",
+      "seconds": 11.342358
+    },
+    {
+      "id": "proposal",
+      "atSeconds": 51.485,
+      "caption": "Frozen proposal · no invoice before acceptance",
+      "voice": "The proposal freezes this scope and amount. Included work stays visible at no extra charge. Invoicing remains locked while we wait for this exact version to be accepted.",
+      "seconds": 9.997732
+    },
+    {
+      "id": "client",
+      "atSeconds": 62.717,
+      "caption": "Separate client view · synthetic response, identity unverified",
+      "voice": "The client can review the evidence, accept the proposal, or request changes. This prototype records a synthetic response without authenticating identity. It does not claim a legal signature.",
+      "seconds": 11.75737
+    },
+    {
+      "id": "provider",
+      "atSeconds": 75.617,
+      "caption": "Previously issued example · actual account-backed PayPal sandbox",
+      "voice": "Now we switch to the matching example previously issued through the real PayPal sandbox API. The stored invoice is for the reviewed store and exact amount. This is not the mock payment adapter.",
+      "seconds": 10.947438
+    },
+    {
+      "id": "refresh",
+      "atSeconds": 94.837,
+      "caption": "Fresh provider query · exact proposal and invoice binding",
+      "voice": "Refresh status makes an authenticated PayPal query. ScopePay checks the proposal reference, seller, buyer, currency, amount, and line items. We show the returned state. Buyer checkout has not been verified.",
+      "seconds": 13.577052
+    },
+    {
+      "id": "receipt",
+      "atSeconds": 109.865,
+      "caption": "Redacted receipt · a local snapshot, not a payment attestation",
+      "voice": "The exported receipt connects the proposal, local acceptance, and invoice snapshot without exposing source text or access tokens. Partial and pending states remain unsettled. Lost creation responses block blind retries.",
+      "seconds": 13.206893
+    },
+    {
+      "id": "end",
+      "atSeconds": 123.898,
+      "caption": "An AI can find the clause. People agree what it means.",
+      "voice": "ScopePay keeps the original words, the human decision, and the exact invoice together. An AI can find the clause. People agree what it means.",
+      "seconds": 9.62771
+    }
+  ],
+  "errors": [],
+  "published": false,
+  "visualFramesReviewed": [
+    "start",
+    "middle",
+    "end"
+  ],
+  "audioStreamsVerified": true,
+  "audioMeanDb": -21.2,
+  "audioPeakDb": -2.4,
+  "publicVideo": false
+}

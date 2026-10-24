@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-24",
+  "result": "PASS",
+  "kind": "Rendered application with actual saved sandbox invoice; no provider responses injected",
+  "status": "UNPAID",
+  "buyerPaymentVerified": false,
+  "errors": [],
+  "viewports": [
+    "1440x1000",
+    "390x844"
+  ]
+}
