@@ -1,7 +1,7 @@
 {
   "result": "BLOCKED",
   "appVersion": "0.4.2",
-  "checkedAt": "2026-10-23T18:07:49.237Z",
+  "checkedAt": "2026-10-24T13:40:47.102Z",
   "checks": [
     {
       "gate": "current-local-build",
@@ -13,7 +13,7 @@
     },
     {
       "gate": "public-open-source-repository",
-      "passed": false
+      "passed": true
     },
     {
       "gate": "public-working-demo-video",
@@ -21,7 +21,7 @@
     },
     {
       "gate": "eligibility-and-registration",
-      "passed": false
+      "passed": true
     },
     {
       "gate": "entry-materials-reviewed",

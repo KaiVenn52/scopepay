@@ -1,0 +1,45 @@
+{
+  "result": "READY_FOR_FINAL_HUMAN_REVIEW",
+  "appVersion": "0.4.2",
+  "checkedAt": "2026-10-25T03:41:41.114Z",
+  "checks": [
+    {
+      "gate": "current-local-build",
+      "passed": true
+    },
+    {
+      "gate": "account-backed-sandbox-run",
+      "passed": true
+    },
+    {
+      "gate": "public-open-source-repository",
+      "passed": true
+    },
+    {
+      "gate": "public-working-demo-video",
+      "passed": true
+    },
+    {
+      "gate": "eligibility-and-registration",
+      "passed": true
+    },
+    {
+      "gate": "entry-materials-reviewed",
+      "passed": true
+    },
+    {
+      "gate": "within-submission-window",
+      "passed": true
+    }
+  ],
+  "finalSubmissionAuthorized": false,
+  "qualityChecks": [
+    {
+      "gate": "buyer-checkout-and-paid-invoice",
+      "passed": false,
+      "requiredByOfficialSubmissionRules": false,
+      "note": "A disclosed account-backed UNPAID invoice can demonstrate invoicing. It never proves buyer payment or settlement."
+    }
+  ],
+  "limitation": "Local consistency checks plus explicit human review attestations. Public URLs and receipts are not independently authenticated by this command. It never publishes, registers or submits."
+}

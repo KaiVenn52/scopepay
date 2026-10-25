@@ -29,3 +29,30 @@ test('consistent reviewed evidence permits human review only, never automatic su
   assert.equal(report.result, 'READY_FOR_FINAL_HUMAN_REVIEW'); assert.equal(report.finalSubmissionAuthorized, false);
   assert.equal(submissionReadiness(state, { ...options, receipt, now: new Date('2026-11-12T20:00:00Z') }).result, 'BLOCKED');
 });
+
+function unpaidFixture() {
+  const f = fixture(); f.receipt.invoice.status = 'UNPAID'; f.receipt.invoice.fullyPaidInStoredSnapshot = false;
+  const { checksum, ...content } = f.receipt; f.receipt.checksum.value = digest(content); return f;
+}
+
+test('an unpaid invoice without reviewed disclosure cannot pass materials readiness', () => {
+  const { state, receipt } = unpaidFixture();
+  assert.equal(submissionReadiness(state, { ...options, receipt }).checks.find(c => c.gate === 'account-backed-sandbox-run').passed, false);
+});
+
+test('explicitly disclosed actual unpaid invoicing permits review while buyer payment stays unverified', () => {
+  const { state, receipt } = unpaidFixture(); state.sandbox.unpaidDemoDisclosureReviewed = true; state.video.unpaidStateDisclosedReviewed = true;
+  const report = submissionReadiness(state, { ...options, receipt });
+  assert.equal(report.result, 'READY_FOR_FINAL_HUMAN_REVIEW');
+  assert.equal(report.qualityChecks[0].passed, false); assert.equal(report.qualityChecks[0].requiredByOfficialSubmissionRules, false);
+  assert.equal(report.finalSubmissionAuthorized, false);
+});
+
+test('unlisted video needs reviewed event guidance and private video always blocks', () => {
+  const { state, receipt } = fixture(); state.video.visibility = 'unlisted';
+  assert.equal(submissionReadiness(state, { ...options, receipt }).result, 'BLOCKED');
+  state.video.eventAllowsUnlistedReviewed = true;
+  assert.equal(submissionReadiness(state, { ...options, receipt }).result, 'READY_FOR_FINAL_HUMAN_REVIEW');
+  state.video.visibility = 'private';
+  assert.equal(submissionReadiness(state, { ...options, receipt }).result, 'BLOCKED');
+});

@@ -8,7 +8,9 @@ Actual PayPal sandbox OAuth returned HTTP 200 after the existing app credentials
 - [Actual provider request/status record](../evidence/iterations/2026-10-24/actual-sandbox-integration.json)
 - [Redacted actual sandbox invoice receipt](../evidence/iterations/2026-10-24/actual-sandbox-receipt.json)
 
-The public recipient page was opened and displayed the same store deliverable and USD 240.00 amount. Chrome disconnected during buyer setup and was then restored by the user; checkout work is ongoing. No external-payment recording endpoint or mock paid state was used. No real funds, public publication or final submission occurred.
+The sandbox recipient page displayed the same store deliverable and USD 240.00 amount. Checkout work is ongoing. No external-payment recording endpoint or mock paid state was used. No real funds or final submission occurred.
+
+The [source repository](https://github.com/KaiVenn52/scopepay) is public with MIT detected and anonymously accessible. GitHub Actions passed on Windows and Ubuntu. A 133.53-second actual local-AI/sandbox-query walkthrough was published on YouTube, then explicitly changed to unlisted at the owner's request. [Video](https://youtu.be/jWOupeUs9II). The actual event form subsequently clarified that public or unlisted with no password is accepted; the earlier strict-Public interpretation was corrected. PayPal event registration succeeded after explicit entrant terms approval; the authorized CAPTCHA was completed and draft 1259804 reached the final review step.
 
 ## Earlier account access update — 2026-10-24
 

@@ -28,4 +28,12 @@ The invoice's sandbox recipient page displays the expected deliverable and USD 2
 
 A repeat `sandbox:prepare` run only loaded the existing review, refreshed its invoice and exported a receipt. It did not create or issue another invoice. The provider returned HTTP 200 and UNPAID again, with exact binding verified. Desktop and mobile screenshots were visually inspected; the invoice status and unauthenticated test-client disclosure are readable in both.
 
-Buyer payment is pending and the current receipt is not paid evidence. Final footage, public repository/video, eligibility/registration confirmation and final submission review remain outstanding. No real funds, production payment, public publishing or final submission occurred.
+Buyer payment is pending and the current receipt is not paid evidence. The subsequent publication/registration update below supersedes the earlier unpublished status. No real funds, production payment or final submission occurred.
+
+## Narrated video, publication and registration
+
+A 133.525669-second H.264/AAC screen recording now demonstrates fresh local MiniLM inference, human review/price, synthetic client acceptance, then an explicitly disclosed switch to the previously issued account-backed invoice. The recording performs a fresh authenticated PayPal refresh and exports its redacted UNPAID receipt. It never creates another invoice or simulates payment. Microsoft Zira Desktop supplies English synthetic narration. Start/middle/end frames were inspected, both media streams decode correctly, and audio peak/mean levels are -2.4/-21.2 dB.
+
+Source was publicly released with MIT at https://github.com/KaiVenn52/scopepay after authorization. Anonymous repository/license access and Windows/Ubuntu GitHub Actions passed. Video https://youtu.be/jWOupeUs9II was published, then explicitly changed to unlisted at the owner's request. The actual event form explicitly allows public or unlisted with no password, resolving the earlier overly strict interpretation of the overview wording.
+
+The entrant confirmed age, Malaysia residence and no disqualifying affiliation, and subsequently approved the exact registration data and official terms at action time. PayPal event registration returned "Thanks for registering!". Project creation triggered a CAPTCHA; completing the current challenge was separately authorized. The challenge passed and draft 1259804 was filled through the final review step (4/5). Final submission is not authorized or performed.

@@ -48,12 +48,12 @@ Node.js; JavaScript; HTML; CSS; PayPal Invoicing v2 and sandbox OAuth; Transform
 
 ## Links and disclosures still required
 
-Public source repository URL: pending authorized publication.
+Public source repository URL: https://github.com/KaiVenn52/scopepay (MIT; anonymously accessible).
 
-Public YouTube demo URL: pending real sandbox footage and authorized publication.
+YouTube demo URL: https://youtu.be/jWOupeUs9II (133.53 seconds; actual sandbox query and local AI; currently unlisted at the owner's request). The actual event form explicitly permits public or unlisted with no password; that guidance has been inspected and saved.
 
 Functional demo access: repository setup instructions in [JUDGE-QUICKSTART.md](JUDGE-QUICKSTART.md).
 
 Current integration disclosure: actual sandbox OAuth, invoice creation, issuance and exact-bound detail queries are verified; buyer payment and PAID confirmation remain outstanding. Keep this disclosure until observed evidence supports a replacement.
 
-Entrant eligibility and PayPal hackathon registration: must be confirmed by the entrant; do not infer from another event or browser session.
+Entrant eligibility: confirmed directly by the entrant. PayPal hackathon registration: confirmed on this event's own page after action-time terms approval. Final project submission: not performed.

@@ -1,23 +1,29 @@
 {
   "localQaFile": "evidence/iterations/2026-10-24/after/real-ai-ui-verification.json",
   "sandbox": {
-    "accountBackedRunReviewed": false,
-    "receiptFile": null
+    "accountBackedRunReviewed": true,
+    "receiptFile": "evidence/iterations/2026-10-24/actual-sandbox-receipt.json",
+    "unpaidDemoDisclosureReviewed": true,
+    "buyerCheckoutReviewed": false
   },
   "repository": {
-    "url": null,
-    "anonymousAccessReviewed": false,
-    "licenseVisibleReviewed": false
+    "url": "https://github.com/KaiVenn52/scopepay",
+    "anonymousAccessReviewed": true,
+    "licenseVisibleReviewed": true
   },
   "video": {
-    "url": null,
-    "durationSeconds": null,
-    "publicAccessReviewed": false,
-    "actualSandboxFootageReviewed": false
+    "url": "https://www.youtube.com/watch?v=jWOupeUs9II",
+    "durationSeconds": 133.525669,
+    "publicAccessReviewed": true,
+    "actualSandboxFootageReviewed": true,
+    "visibility": "unlisted",
+    "ownerRequestedVisibility": "unlisted",
+    "eventAllowsUnlistedReviewed": true,
+    "unpaidStateDisclosedReviewed": true
   },
   "entrant": {
     "eligibilityConfirmed": true,
-    "paypalEventRegistrationConfirmed": false
+    "paypalEventRegistrationConfirmed": true
   },
-  "finalMaterialsReviewed": false
+  "finalMaterialsReviewed": true
 }

@@ -22,7 +22,7 @@ Node.js serves a local review workspace and owns source validation, cents arithm
 
 ## What makes it different
 
-The product connects a specific scope disagreement to a specific invoice. It does not let an assistant decide what a client legally owes, invent a quote, select a price or charge a card. It also avoids interpreting a partial-payment event as final settlement. If an invoice creation response is lost, a read-only recovery check can attach an existing sandbox invoice only after its merchant, recipient, amount, lines and frozen reference all match. Contract tests cover this path; actual sandbox validation remains outstanding.
+The product connects a specific scope disagreement to a specific invoice. It does not let an assistant decide what a client legally owes, invent a quote, select a price or charge a card. It also avoids interpreting a partial-payment event as final settlement. If an invoice creation response is lost, a read-only recovery check can attach an existing sandbox invoice only after its merchant, recipient, amount, lines and frozen reference all match. Contract tests cover this recovery path; a real lost-response incident has not been induced against PayPal. Normal account-backed creation, issuance and details queries have passed.
 
 ## Evidence status before finalization
 
@@ -30,10 +30,12 @@ The product connects a specific scope disagreement to a specific invoice. It doe
 - Real model inference: actual local MiniLM CPU execution and model-backed browser workflow verified, with pinned revision, input/output evidence and asset hashes.
 - Real PayPal sandbox OAuth, invoice creation, issuance and detail queries: verified against the account; buyer payment and PAID confirmation still required.
 - Verified webhook delivery: not implemented; current status tracking uses polling.
-- Public repository, public video, registration and final submission: not completed.
+- Public [MIT source repository](https://github.com/KaiVenn52/scopepay): published and anonymously accessible; Windows and Ubuntu CI passed.
+- [Actual sandbox walkthrough](https://youtu.be/jWOupeUs9II): 133.53 seconds, English narration; unlisted at the owner's request. The actual event form explicitly accepts unlisted video with no password.
+- PayPal event registration: confirmed after explicit entrant agreement. Project draft 1259804 was created after the authorized CAPTCHA and its required fields are saved; final submission has not occurred.
 
 ## What is next
 
 Capture a complete PayPal sandbox buyer payment and record the real model, client response and sandbox workflow. Validate the implemented recovery flow against an actual sandbox account and add authenticated client identity before considering a hosted multi-user product. No user outcomes, recovered revenue or production usage are claimed.
 
-**Submission fields still needed:** public repository URL; public YouTube URL; confirmed entrant eligibility and registration; accurate tools/model list based on the eventual real run; final evidence-backed revision of this draft.
+**Before final submission:** finish the real event draft and final review, preserve the reviewed no-password unlisted video setting allowed by the actual form, and retain the UNPAID/checkout-unverified disclosure unless subsequent provider evidence changes it. Entrant eligibility and event registration are confirmed. The exact demonstrated tools are listed in the field copy.

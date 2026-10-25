@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-25",
+  "timezone": "Asia/Kuala_Lumpur",
+  "eventId": 31302,
+  "draftId": 1259804,
+  "stepsCompleted": 4,
+  "totalSteps": 5,
+  "finalTermsChecked": false,
+  "finalSubmissionPerformed": false,
+  "preview": "https://devpost.com/software/scopepay-9plmux",
+  "finalization": "https://devpost.com/submit-to/31302-paypal-ai-hackathon/manage/submissions/1259804-scopepay/finalization",
+  "savedStoryMatchesLocal": true,
+  "inspirationHeadings": 1,
+  "currentBackendTestsInStory": 45,
+  "technologyTags": 8,
+  "galleryImages": 3,
+  "thumbnail": "actual-product-screenshot",
+  "videoVisibility": "unlisted",
+  "actualEventFormAllowsUnlistedWithNoPassword": true,
+  "buyerPaymentVerified": false,
+  "invoiceState": "UNPAID",
+  "sourceText": "submission/DEVPOST-STORY.md"
+}

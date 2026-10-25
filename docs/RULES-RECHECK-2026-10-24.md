@@ -9,3 +9,7 @@ Legal majority age and the exclusion/conflict provisions apply. The user confirm
 No rule separately requires a PAID invoice from every entrant. ScopePay's buyer-payment test remains an unfinished integration-quality checkpoint. Any submission using the current issued-invoice demo must explicitly preserve UNPAID and unverified-checkout disclosures.
 
 Jina Reader returned a challenge page (403), so its output was not accepted as rules evidence. The official page was successfully verified through the web tool, and the authenticated event requirements were read in the in-app browser. No registration, agreement acceptance or final submission was performed during this check.
+
+## Actual form clarification
+
+The authenticated Project details page for this event explicitly states: "Visibility: Set to public or unlisted with no password." That event-specific guidance was captured in `devpost-video-guidance.png`. The current unlisted, no-password video is accepted by that instruction; the earlier interpretation requiring the literal YouTube Public setting was too strict. The owner's unlisted preference remains in force.

@@ -2,7 +2,9 @@
 
 Turn “just one more thing” into an evidence-backed, reviewed scope change and a PayPal sandbox invoice.
 
-**v0.4.2: runnable local prototype with verified real local AI retrieval, client-requested revisions, guarded invoice recovery and redacted evidence receipts. Actual sandbox OAuth, invoice creation, issuance and exact-bound detail queries are verified. Buyer test payment remains pending.** No registration, public deployment, public repository, video publication, or final submission is claimed.
+**v0.4.2: runnable local prototype with verified real local AI retrieval, client-requested revisions, guarded invoice recovery and redacted evidence receipts. Actual sandbox OAuth, invoice creation, issuance and exact-bound detail queries are verified. Buyer test payment remains pending.**
+
+[Source repository](https://github.com/KaiVenn52/scopepay) · [133.53-second actual sandbox walkthrough](https://youtu.be/jWOupeUs9II) · [Judge setup](submission/JUDGE-QUICKSTART.md). The video is currently unlisted at the owner's request; the actual event form explicitly allows public or unlisted video with no password. PayPal event registration is confirmed; final submission has not occurred.
 
 ScopePay is for independent developers and designers whose clients add work after agreeing a scope. It preserves exact quotations, distinguishes additional work, included work and requests needing clarification, and presents a frozen proposal in a separate client view. A new invoice requires a response accepting that exact revision. The local client page records a self-reported name; it does not authenticate identity or establish a verified legal signature.
 
@@ -10,10 +12,13 @@ ScopePay is for independent developers and designers whose clients add work afte
 
 Requires Node.js 22 or newer; verified runtime is Node.js 24.20.0. The offline workflow needs only Node.js. Real local semantic AI uses the pinned Transformers.js npm dependency and cached model assets.
 
-```powershell
-cd 'C:\Users\Dell2u\OneDrive\Documents\X创作\paypal-scopepay'
-npm.cmd start
+```sh
+git clone https://github.com/KaiVenn52/scopepay.git
+cd scopepay
+npm start
 ```
+
+On Windows PowerShell, use `npm.cmd` if script execution policy blocks `npm`.
 
 Open **http://127.0.0.1:3186**. Defaults are `PAYPAL_MODE=mock` and `AI_MODE=offline`. No account, model, dependency installation or money is needed for the local demonstration.
 

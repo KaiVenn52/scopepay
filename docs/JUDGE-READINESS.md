@@ -23,12 +23,14 @@ PayPal must be central in the final demo: the reviewed line and frozen reference
 - Working local build, repeatable checks, MIT license: prepared.
 - Actual local model and synthetic regression evidence: verified.
 - Client acceptance/refusal and invoice guard: verified locally; identity unverified.
-- Real sandbox invoice/payment: requires account configuration and execution.
-- Devpost registration and personal eligibility: unconfirmed.
-- Public repository, public YouTube video and final submission: pending authorization and actual execution.
+- Real sandbox invoice: actual OAuth, creation, issuance and exact-bound details queries verified; buyer payment remains unverified and the invoice is UNPAID.
+- Devpost PayPal registration and personal eligibility: confirmed. The authorized CAPTCHA passed and draft 1259804 reached 4/5 steps.
+- Public MIT repository: published, anonymously accessible, Windows/Ubuntu CI passed.
+- YouTube walkthrough: uploaded, 133.53 seconds, actual AI and provider query; unlisted at the owner's request. The actual event form explicitly allows unlisted video with no password.
+- Final submission: not performed.
 
 No interviews, usage numbers, recovered revenue, audience reach, independent accuracy, live payments or prize likelihood are invented.
 
 ## Submission review package
 
-The current entry copy, judge setup, and release gates are in [FORM-COPY](../submission/FORM-COPY.md), [JUDGE-QUICKSTART](../submission/JUDGE-QUICKSTART.md) and [RELEASE-CHECKLIST](../submission/RELEASE-CHECKLIST.md). The local readiness command currently returns BLOCKED for actual sandbox evidence, public repository/video, eligibility/registration and final materials review. Local build QA and the submission window pass. These are consistency checks with human attestations, not independent verification of remote services.
+The current entry copy, judge setup, and release gates are in [FORM-COPY](../submission/FORM-COPY.md), [JUDGE-QUICKSTART](../submission/JUDGE-QUICKSTART.md) and [RELEASE-CHECKLIST](../submission/RELEASE-CHECKLIST.md). The local readiness command now distinguishes formal material requirements from the unfinished buyer-payment quality checkpoint. A real bound UNPAID invoice needs explicit reviewed disclosure; an unlisted video needs reviewed event guidance and anonymous accessibility. Public source/license, eligibility/registration, local build QA and the submission window pass. Buyer PAID is an internal quality checkpoint, not a separately quoted official rule. These are consistency checks with review attestations, not independent authentication of every remote claim.

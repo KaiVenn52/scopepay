@@ -1,6 +1,12 @@
 # ScopePay publication review
 
-Prepared 2026-10-24. These are concrete proposed publications, not published links. Final hackathon submission is a separate action and remains unauthorized.
+Updated 2026-10-24. Publication was authorized in this project chat and completed. The owner then explicitly requested unlisted video visibility, which has been saved. Final hackathon submission is a separate action and remains unauthorized.
+
+Current source: https://github.com/KaiVenn52/scopepay (public, MIT, anonymous access verified, Windows/Ubuntu CI passed). The prior local GitHub cached username was stale; the authenticated `/user` endpoint identified the current account as KaiVenn52 before the repository was created.
+
+Current video: https://youtu.be/jWOupeUs9II (133.53 seconds, now unlisted by explicit owner request). The actual event form explicitly permits public or unlisted with no password; the earlier strict-Public interpretation was corrected. Do not restore public visibility without the owner's authorization.
+
+PayPal event registration succeeded after the entrant confirmed the exact prepared data and agreed to the official rules/Devpost terms at action time. Creating the project draft triggered a CAPTCHA; its completion was separately authorized. The challenge passed and draft 1259804 reached the final review step. The sections below preserve the earlier publication proposal for traceability and are not the current publication status.
 
 ## Proposed source repository
 
