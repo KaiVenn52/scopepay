@@ -1,0 +1,50 @@
+{
+  "schema": "scopepay-evidence-receipt/v1",
+  "appVersion": "0.4.3",
+  "exportedAt": "2026-10-26T16:34:44.655Z",
+  "evidenceBasis": "Redacted projection of local records; no provider call is made during export.",
+  "proposal": {
+    "fingerprint": "affd0d9dc92a22f6b44d12d14dff657977e3744e8480a837825dd65a646e913d",
+    "sourceFingerprint": "86b4d2e2c0066643e0c0f59e46918cbf5197cdfd17ba19bfcd3774a125ffc41d",
+    "revision": 1,
+    "hasParent": false,
+    "state": "active",
+    "currency": "USD",
+    "totalCents": 24000,
+    "chargedItems": 1,
+    "includedItems": 1,
+    "clarificationItems": 1
+  },
+  "analysis": {
+    "mode": "local-embeddings",
+    "limitation": "Retrieval and quoted text do not establish contractual entitlement or model accuracy."
+  },
+  "client": {
+    "decision": "accepted",
+    "matchesProposal": true,
+    "identityVerified": false,
+    "acceptedActiveRevision": true
+  },
+  "invoice": {
+    "mode": "sandbox",
+    "status": "UNPAID",
+    "idFingerprint": "1fa7b7e7d2f5596db5355ba5c2022f221aaf096d716800f6a825cf98e9827b21",
+    "lastCheckedAt": "2026-10-26T16:34:44.562Z",
+    "proposalBindingChecked": true,
+    "bindingCheckedAt": "2026-10-26T16:34:44.573Z",
+    "paymentEvidence": "stored-sandbox-adapter-response; not independently attested",
+    "fullyPaidInStoredSnapshot": false,
+    "realMoneyEvidence": false
+  },
+  "uncertainCreation": false,
+  "privacy": "Names, emails, proposal access tokens, source excerpts, notes, invoice URLs and raw invoice IDs are omitted. Fingerprints and amounts remain potentially linkable.",
+  "limitations": [
+    "Local records can be edited by their owner. This receipt is not a signature or notarized payment proof.",
+    "A checksum detects content changes; it does not authenticate the author or validate PayPal acceptance.",
+    "No public deployment, registration, production payment or competition submission is established."
+  ],
+  "checksum": {
+    "algorithm": "SHA-256 of JSON.stringify(content), preserving property order; excludes checksum",
+    "value": "9e72b2a90cd114b6b15627d6aaab407e72dba7bfa06ddd0bcc150c2b673b4764"
+  }
+}

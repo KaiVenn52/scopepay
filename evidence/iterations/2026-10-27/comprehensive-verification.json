@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-27",
+  "appVersion": "0.4.3",
+  "result": "PASS",
+  "backendTests": 49,
+  "realModelUiChecks": 21,
+  "recoveryUiChecks": 5,
+  "targetedAuditGroups": 8,
+  "knownProductionDependencyAdvisories": 0,
+  "independentDependencyInstall": true,
+  "independentTests": 49,
+  "independentActualInference": true,
+  "modelCacheReusedAndReverified": true,
+  "coldModelDownloadRepeated": false,
+  "actualSandboxReadOnly": "OAuth 200, details 200, exact binding verified, UNPAID; zero invoice writes",
+  "videoRuleAmbiguity": "UNRESOLVED",
+  "alreadySubmitted": true
+}

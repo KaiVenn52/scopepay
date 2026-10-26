@@ -2,9 +2,9 @@
 
 Turn “just one more thing” into an evidence-backed, reviewed scope change and a PayPal sandbox invoice.
 
-**v0.4.2: runnable local prototype with verified real local AI retrieval, client-requested revisions, guarded invoice recovery and redacted evidence receipts. Actual sandbox OAuth, invoice creation, issuance and exact-bound detail queries are verified. Buyer test payment remains pending.**
+**v0.4.3: runnable local prototype with verified real local AI retrieval, client-requested revisions, guarded invoice recovery and redacted evidence receipts. Actual sandbox OAuth, invoice creation, issuance and exact-bound detail queries are verified. Buyer test payment remains pending.**
 
-[Source repository](https://github.com/KaiVenn52/scopepay) · [133.53-second actual sandbox walkthrough](https://youtu.be/jWOupeUs9II) · [Judge setup](submission/JUDGE-QUICKSTART.md). The video is currently unlisted at the owner's request; the actual event form explicitly allows public or unlisted video with no password. PayPal event registration is confirmed; final submission has not occurred.
+[Source repository](https://github.com/KaiVenn52/scopepay) · [133.53-second actual sandbox walkthrough](https://youtu.be/jWOupeUs9II) · [Judge setup](submission/JUDGE-QUICKSTART.md). The video is currently unlisted at the owner's request; the actual event form explicitly allows public or unlisted video with no password. ScopePay was submitted to the PayPal AI Hackathon on 2026-10-27: https://devpost.com/software/scopepay-9plmux. The form permits unlisted video, but the controlling rules use “publicly visible”; that ambiguity is recorded in docs/CHAMPIONSHIP-AUDIT-2026-10-27.md and is not treated as settled permission.
 
 ScopePay is for independent developers and designers whose clients add work after agreeing a scope. It preserves exact quotations, distinguishes additional work, included work and requests needing clarification, and presents a frozen proposal in a separate client view. A new invoice requires a response accepting that exact revision. The local client page records a self-reported name; it does not authenticate identity or establish a verified legal signature.
 
@@ -127,16 +127,22 @@ For offline browser QA run `npm.cmd run test:ui`. For actual local AI browser QA
 - [Product iteration and before/after evidence](docs/ITERATION-2026-10-24.md)
 - [Judging readiness and honest gaps](docs/JUDGE-READINESS.md)
 
-The working API uses polling for payment status. A webhook receiver is not implemented; verified webhook delivery requires an additional authorized public HTTPS endpoint. [MIT license](LICENSE). No publishing or submission was authorized in this work round.
+The working API uses polling for payment status. A webhook receiver is not implemented; verified webhook delivery requires an additional authorized public HTTPS endpoint. [MIT license](LICENSE). Registration, source/video publication and final submission were separately authorized and completed; dated records remain in evidence/iterations/.
 
 ## Submission review
 
 Start with [judge setup and the exact demo flow](submission/JUDGE-QUICKSTART.md), [English field copy](submission/FORM-COPY.md), and the [release checklist](submission/RELEASE-CHECKLIST.md). `npm run submission:check -- --write` checks current-version browser QA and the explicitly reviewed external evidence recorded in `submission/submission-state.json`. Exit code 2 means missing gates. It never publishes or submits, and local receipts alone cannot establish an actual sandbox run.
 
-`npm run record:rehearsal` records the real local AI with simulated payments in a fresh local browser and saves a labeled WebM under ignored `delivery/`. It is a silent rehearsal, not qualifying PayPal evidence or a published YouTube video. The final recording still needs actual sandbox footage and publication approval.
+`npm run record:rehearsal` records the real local AI with simulated payments in a fresh local browser and saves a labeled WebM under ignored `delivery/`. It is a silent rehearsal, not qualifying PayPal evidence or a published YouTube video. The final narrated 133.53-second actual-sandbox video is linked above; the silent rehearsal is historical.
 
 ## Local source package
 
 On Windows PowerShell, run `./scripts/package-source.ps1` to create a local ZIP under ignored `delivery/`. The script verifies local links, refreshes the SHA-256 source manifest, and excludes credentials, models, dependencies, application data and previous packages. It does not publish anything. `./scripts/verify-package.ps1` then checks the ZIP hash, extracts a fresh copy, installs that copy's dependencies from the npm cache, runs its checks/tests, and executes real model setup/inference. A cache miss during that explicit package verification requires a normal `npm ci` first.
 
-The included GitHub Actions workflow is prepared for Linux/Windows checks after a separately authorized repository publication. It has not run remotely and is not evidence of passing remote CI.
+GitHub Actions passed on Windows and Ubuntu for the submitted v0.4.2 commit 374260a21221aec510c2962c6dd1adc8ecea954a. Later changes require their own CI run. See the workflow in this repository for the current commit status.
+
+## Audit update — 2026-10-27
+
+Version 0.4.3 reconciles the provider state before retrying an invoice issue, preserves draft decisions and prices across same-tab reloads without restoring confirmation, and preserves UTF-8 across request chunks. Drafts include source text and recipient in this tab’s session storage; freezing clears that draft, and closing the tab ends its normal lifetime. No verified identity or legal signature is implied. The existing single-process data directory remains unencrypted.
+
+The transitive sharp dependency is overridden to patched 0.35.5. The production dependency audit reported zero known advisories after this change; this is not a guarantee of no vulnerabilities. Real local model inference and the full browser flow were rerun. [Comprehensive audit and remaining competitive gaps](docs/CHAMPIONSHIP-AUDIT-2026-10-27.md).

@@ -8,7 +8,7 @@ const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const files = [];
 async function collect(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
-    if (['node_modules', '.git', 'data', 'test-results', '.model-cache', 'delivery'].includes(entry.name) || (entry.name.startsWith('.env') && entry.name !== '.env.example')) continue;
+    if (['node_modules', '.git', 'data', 'test-results', '.model-cache', 'delivery', 'entrant-confirmation.json'].includes(entry.name) || (entry.name.startsWith('.env') && entry.name !== '.env.example')) continue;
     const target = path.join(directory, entry.name);
     if (entry.isDirectory()) await collect(target);
     else if (entry.isFile() && !['SHA256SUMS.txt', 'delivery-verification.json'].includes(entry.name)) files.push(target);

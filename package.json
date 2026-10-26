@@ -1,6 +1,6 @@
 {
   "name": "scopepay",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "private": true,
   "type": "module",
   "description": "Evidence-backed scope changes with human approval and PayPal sandbox invoicing",
@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node --env-file-if-exists=.env server.mjs",
     "test": "node --test test/core.test.mjs test/proposals.test.mjs test/semantic.test.mjs test/workflow.test.mjs test/recovery.test.mjs test/receipt.test.mjs test/preflight.test.mjs test/model-assets.test.mjs test/submission.test.mjs",
-    "check": "node --check server.mjs && node --check lib/core.mjs && node --check lib/providers.mjs && node --check lib/semantic.mjs && node --check lib/proposals.mjs && node --check public/app.js && node --check public/client.js && node --check lib/recovery.mjs && node --check lib/receipt.mjs && node --check lib/preflight.mjs && node --check scripts/sandbox-preflight.mjs && node --check scripts/verify-receipt.mjs && node --check lib/model-assets.mjs && node --check lib/submission.mjs && node --check scripts/submission-check.mjs && node --check scripts/record-rehearsal.mjs && node --check scripts/start-sandbox.mjs && node --check scripts/prepare-sandbox-demo.mjs",
+    "check": "node --check server.mjs && node --check lib/core.mjs && node --check lib/providers.mjs && node --check lib/semantic.mjs && node --check lib/proposals.mjs && node --check public/app.js && node --check public/client.js && node --check lib/recovery.mjs && node --check lib/receipt.mjs && node --check lib/preflight.mjs && node --check scripts/sandbox-preflight.mjs && node --check scripts/verify-receipt.mjs && node --check lib/model-assets.mjs && node --check lib/submission.mjs && node --check scripts/submission-check.mjs && node --check scripts/record-rehearsal.mjs && node --check scripts/start-sandbox.mjs && node --check scripts/prepare-sandbox-demo.mjs && node --check scripts/verify-audit.mjs && node --check scripts/audit-sandbox-readonly.mjs && node --check scripts/evaluate-retrieval.mjs",
     "test:ui": "node scripts/verify-ui.mjs",
     "verify:ai": "node scripts/verify-ai.mjs",
     "test:ui:ai": "node scripts/verify-ui.mjs --real-ai",
@@ -23,12 +23,16 @@
     "submission:check": "node scripts/submission-check.mjs",
     "record:rehearsal": "node scripts/record-rehearsal.mjs",
     "start:sandbox": "node --env-file-if-exists=.env scripts/start-sandbox.mjs",
-    "sandbox:prepare": "node --env-file-if-exists=.env scripts/prepare-sandbox-demo.mjs"
+    "sandbox:prepare": "node --env-file-if-exists=.env scripts/prepare-sandbox-demo.mjs",
+    "test:audit": "node scripts/verify-audit.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1"
   },
   "dependencies": {
     "@huggingface/transformers": "3.8.1"
+  },
+  "overrides": {
+    "sharp": "0.35.5"
   }
 }

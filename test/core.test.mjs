@@ -52,7 +52,7 @@ test('sandbox contract uses OAuth, draft creation, suppressed notifications and 
     if (url.endsWith('/token')) return Response.json({ access_token: 'test-only-token' });
     if (url.endsWith('/send')) return new Response('', { status: 202 });
     if (options.method === 'POST') return Response.json({ href: 'https://api-m.sandbox.paypal.com/v2/invoicing/invoices/INV2-AAAA-BBBB' });
-    return Response.json({ ...invoicePayload(r, 'merchant@example.test'), id: 'INV2-AAAA-BBBB', status: 'PARTIALLY_PAID', amount: { currency_code: 'USD', value: '125.50' } });
+    return Response.json({ ...invoicePayload(r, 'merchant@example.test'), id: 'INV2-AAAA-BBBB', status: calls.some(call => call.url.endsWith('/send')) ? 'PARTIALLY_PAID' : 'DRAFT', amount: { currency_code: 'USD', value: '125.50' } });
   };
   const paypal = new PayPal({ PAYPAL_MODE: 'sandbox', PAYPAL_CLIENT_ID: 'test-id', PAYPAL_CLIENT_SECRET: 'test-secret', PAYPAL_MERCHANT_EMAIL: 'merchant@example.test' }, fetcher);
   const r = record(); r.approval = approve(r, approval(r));
@@ -66,4 +66,34 @@ test('missing credentials and live modes fail closed', async () => {
   assert.throws(() => new PayPal({ PAYPAL_MODE: 'live' }), /Only mock and sandbox/);
   const r = record(); r.approval = approve(r, approval(r));
   await assert.rejects(() => new PayPal({ PAYPAL_MODE: 'sandbox' }).create(r), /not configured/);
+});
+
+test('issue retry reconciles remote state after a lost follow-up response without sending twice', async () => {
+  const r = record(); r.approval = approve(r, approval(r));
+  let sends = 0, details = 0;
+  const paypal = new PayPal({ PAYPAL_MODE: 'sandbox', PAYPAL_CLIENT_ID: 'test', PAYPAL_CLIENT_SECRET: 'test', PAYPAL_MERCHANT_EMAIL: 'merchant@example.test' }, async (url, options) => {
+    if (url.endsWith('/token')) return Response.json({ access_token: 'test-only' });
+    if (url.endsWith('/send')) { sends++; return new Response(null, { status: 202 }); }
+    details++;
+    if (details === 2) throw new Error('Follow-up query timed out after successful issue');
+    return Response.json({ ...invoicePayload(r, 'merchant@example.test'), id: 'INV2-AAAA-BBBB', status: sends ? 'UNPAID' : 'DRAFT', amount: { currency_code: 'USD', value: '125.50' } });
+  });
+  const stale = safeInvoice({ id: 'INV2-AAAA-BBBB', status: 'DRAFT' }, 'sandbox');
+  await assert.rejects(() => paypal.send(stale, r), /timed out/);
+  const recovered = await paypal.send(stale, r);
+  assert.equal(sends, 1); assert.equal(recovered.status, 'UNPAID'); assert.equal(recovered.bindingVerified, true); assert.equal(recovered.settled, false);
+});
+
+test('issuing a locally stale draft never sends again when provider reports paid, pending or cancelled', async () => {
+  const r = record(); r.approval = approve(r, approval(r));
+  for (const status of ['PAID', 'PAYMENT_PENDING', 'CANCELLED', 'PARTIALLY_PAID']) {
+    let writes = 0;
+    const paypal = new PayPal({ PAYPAL_MODE: 'sandbox', PAYPAL_CLIENT_ID: 'test', PAYPAL_CLIENT_SECRET: 'test', PAYPAL_MERCHANT_EMAIL: 'merchant@example.test' }, async (url, options) => {
+      if (url.endsWith('/token')) return Response.json({ access_token: 'test-only' });
+      if (options.method !== 'GET') writes++;
+      return Response.json({ ...invoicePayload(r, 'merchant@example.test'), id: 'INV2-AAAA-BBBB', status, amount: { currency_code: 'USD', value: '125.50' } });
+    });
+    const result = await paypal.send(safeInvoice({ id: 'INV2-AAAA-BBBB', status: 'DRAFT' }, 'sandbox'), r);
+    assert.equal(writes, 0); assert.equal(result.status, status); assert.equal(result.settled, status === 'PAID');
+  }
 });

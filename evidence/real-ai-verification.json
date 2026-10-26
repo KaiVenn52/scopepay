@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-23",
+  "date": "2026-10-27",
   "timezone": "Asia/Kuala_Lumpur",
   "result": "PASS",
   "kind": "Actual CPU model inference, not an injected provider response",
@@ -8,8 +8,8 @@
   "dtype": "q8",
   "cachedOnlyRequested": true,
   "task": "feature-extraction with mean pooling, normalized 384-dimensional embeddings; cosine retrieval",
-  "loadMs": 7270,
-  "inferenceMs": 112,
+  "loadMs": 1225,
+  "inferenceMs": 136,
   "scope": "Build a five-page portfolio website. Includes one contact form and two rounds of copy revisions. An online store and booking integrations are not included.",
   "request": "Can you add a shop for selling prints?\nPlease connect Calendly so visitors can book a call.\nCan we change the About page headline in our second revision?",
   "analysis": {
@@ -19,7 +19,7 @@
     "notice": "Real local AI retrieves related scope clauses. It does not decide contractual inclusion or price. All findings require human review.",
     "items": [
       {
-        "id": "80318288-fe48-48fa-8b68-74040c9af4c3",
+        "id": "64435305-67f3-49ea-acb5-e37fa884d8b1",
         "title": "Can you add a shop for selling prints?",
         "scopeQuote": "An online store and booking integrations are not included.",
         "requestQuote": "Can you add a shop for selling prints?",
@@ -41,7 +41,7 @@
         ]
       },
       {
-        "id": "b0faf64b-f99a-4d4f-8765-9d2daec3a446",
+        "id": "7c766bfc-1c5d-4452-9ee1-0506cc3db1f8",
         "title": "Please connect Calendly so visitors can book a call.",
         "scopeQuote": "An online store and booking integrations are not included.",
         "requestQuote": "Please connect Calendly so visitors can book a call.",
@@ -63,7 +63,7 @@
         ]
       },
       {
-        "id": "99d53a46-f691-47e5-901f-0265231d3053",
+        "id": "50f05b4a-75a2-456d-8562-de882c644e2e",
         "title": "Can we change the About page headline in our second revision?",
         "scopeQuote": "Includes one contact form and two rounds of copy revisions.",
         "requestQuote": "Can we change the About page headline in our second revision?",

@@ -57,8 +57,10 @@ export async function createApp({ env = process.env, directory = path.join(root,
       requireValue(req.method === 'POST', 'Not found.', 404);
       requireValue(!req.headers.origin || req.headers.origin === `http://${host}`, 'Cross-origin requests are blocked.', 403);
       requireValue(req.headers['content-type']?.split(';')[0] === 'application/json', 'JSON required.', 415);
+      req.setEncoding('utf8');
       let body = ''; for await (const chunk of req) { body += chunk; requireValue(Buffer.byteLength(body) <= 64000, 'Request too large.', 413); }
       let input; try { input = JSON.parse(body); } catch { requireValue(false, 'Invalid JSON.'); }
+      requireValue(input && typeof input === 'object' && !Array.isArray(input), 'JSON body must be an object.');
       const result = await serial(async () => {
         if (proposalMatch && proposalMatch[2] === 'respond') {
           const record = db.records.find(record => record.proposalToken === proposalMatch[1]); requireValue(record, 'Proposal not found.', 404);

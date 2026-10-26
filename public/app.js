@@ -12,7 +12,35 @@ async function work(fn) {
   try { await fn(); } catch (error) { $('#error').textContent = error.message; $('#error').hidden = false; $('#error').scrollIntoView({ block: 'nearest' }); }
   finally { busy = false; document.body.setAttribute('aria-busy', 'false'); document.querySelectorAll('button').forEach(button => button.disabled = false); }
 }
-async function reload(id = current?.id) { state = await api('/api/state'); current = state.records.find(record => record.id === id); render(); }
+async function reload(id = current?.id) { state = await api('/api/state'); current = state.records.find(record => record.id === id); if (current) { $('#scope').value = current.scope; $('#request').value = current.request; } render(); }
+const draftKey = id => `scopepay:review-draft:${id}`;
+function saveDraft() {
+  if (!current || current.approval) return;
+  const draft = { sourceHash: current.sourceHash, scope: $('#scope').value, request: $('#request').value, recipient: $('#recipient').value,
+    fields: [...document.querySelectorAll('[data-decision],[data-title],[data-rationale],[data-price]')].map(field => ({ id: field.id, value: field.value })) };
+  try { sessionStorage.setItem(draftKey(current.id), JSON.stringify(draft)); $('#draft-status').textContent = 'Draft saved in this tab. Confirmation is never restored.'; }
+  catch { $('#draft-status').textContent = 'Tab storage is unavailable. Keep this tab open until you freeze the proposal.'; }
+}
+function restoreDraft() {
+  $('#draft-status').textContent = '';
+  if (!current) return;
+  try {
+    if (current.approval) { sessionStorage.removeItem(draftKey(current.id)); return; }
+    const draft = JSON.parse(sessionStorage.getItem(draftKey(current.id)) || 'null');
+    if (!draft || draft.sourceHash !== current.sourceHash || !Array.isArray(draft.fields)) return;
+    for (const entry of draft.fields) {
+      if (typeof entry.id !== 'string' || typeof entry.value !== 'string') continue;
+      const field = document.getElementById(entry.id);
+      if (field && $('#items').contains(field)) field.value = entry.value.slice(0, field.maxLength > 0 ? field.maxLength : 1000);
+    }
+    if (typeof draft.scope === 'string') $('#scope').value = draft.scope.slice(0, 12000);
+    if (typeof draft.request === 'string') $('#request').value = draft.request.slice(0, 12000);
+    if (typeof draft.recipient === 'string') $('#recipient').value = draft.recipient.slice(0, 254);
+    $('#confirmed').checked = false;
+    updateDecisions();
+    $('#draft-status').textContent = 'Draft restored in this tab. Review it again before confirming.';
+  } catch { /* Storage is optional; approval and invoice records stay server-side. */ }
+}
 function renderItem(item, index) {
   const id = escape(item.id);
   const alternatives = (item.semanticMatches || []).slice(1).map(match => `<blockquote>${escape(match.scopeQuote)}</blockquote>`).join('');
@@ -24,7 +52,7 @@ function noCharge(approval) {
   return `${included.length ? `<div class="no-charge"><strong>Already included · no extra charge</strong>${included.map(item => `<p>${escape(item.requestQuote)}</p>`).join('')}</div>` : ''}${clarify.length ? `<div class="no-charge muted"><strong>Needs clarification · not billed</strong>${clarify.map(item => `<p>${escape(item.requestQuote)}</p>`).join('')}</div>` : ''}`;
 }
 function render() {
-  if (state.appVersion !== '0.4.2') throw new Error('The app files were updated. Restart ScopePay to load the matching server version.');
+  if (state.appVersion !== '0.4.3') throw new Error('The app files were updated. Restart ScopePay to load the matching server version.');
   const aiLabel = { offline: 'AI offline', ollama: 'Ollama', 'local-embeddings': 'Local semantic AI' }[state.aiMode] || 'AI unavailable';
   $('#connection').textContent = `${state.paypalMode === 'mock' ? 'Mock payments' : 'PayPal sandbox'} · ${aiLabel}`;
   $('#mode-notice').textContent = `${state.paypalMode === 'mock' ? 'Payment simulation — no PayPal API calls or money movement.' : 'PayPal sandbox only. ' + (state.paypalConfigured ? 'Provider responses determine payment status.' : 'Sandbox credentials are missing.')} ${state.aiMode === 'offline' ? 'AI is off; review candidates manually.' : 'AI finds related clauses. You decide what is billable.'}`;
@@ -43,7 +71,7 @@ function render() {
       $('#approved').innerHTML = `<h3>Scope reviewed. Price set.</h3><p class="helper">A fixed revision for client review. ${escape(new Date(a.at).toLocaleString('en-GB'))}.</p>${a.items.map(item => `<div class="change"><div class="proposal-line"><strong>${escape(item.title)}</strong><strong>${money(item.cents)}</strong></div><p>${escape(item.rationale || '')}</p><details><summary>Source evidence</summary><blockquote>${escape(item.scopeQuote)}</blockquote><p class="quote-label">Client request</p><blockquote>${escape(item.requestQuote)}</blockquote></details></div>`).join('')}${noCharge(a)}<div class="total"><span>Additional work · USD</span><strong>${money(a.totalCents)}</strong></div><p class="helper">Recipient: ${escape(a.recipient)}</p><details class="audit-details"><summary>Revision & evidence record</summary><p class="invoice-meta">Approval SHA-256<br>${escape(a.hash)}</p></details>`;
     }
   }
-  renderClient(); renderInvoice();
+  restoreDraft(); renderClient(); renderInvoice();
   $('#history').innerHTML = state.records.length ? [...state.records].reverse().map((record, i) => `<button type="button" data-review="${escape(record.id)}" aria-current="${record.id === current?.id}">${escape(new Date(record.createdAt).toLocaleTimeString('en-GB'))} · ${escape(record.invoice?.status || (record.clientResponse?.decision === 'accepted' ? 'Client accepted' : record.clientResponse?.decision === 'declined' ? 'Changes requested' : record.approval ? 'Client review' : 'Review'))} · ${state.records.length - i}</button>`).join('') : '<p class="helper">Your reviewed changes will appear here.</p>';
 }
 function renderClient() {
@@ -77,7 +105,7 @@ function updateDecisions() {
   $('#total').textContent = money(selected().reduce((sum, item) => sum + (/^\d{1,5}\.\d{2}$/.test(item.amount) ? Number(item.amount.replace('.', '')) : 0), 0));
   const list = decisions(); $('#decision-summary').textContent = `${list.filter(item => item.disposition === 'additional').length} additional · ${list.filter(item => item.disposition === 'included').length} included · ${list.filter(item => item.disposition === 'clarify').length} to clarify · ${list.filter(item => !item.disposition).length} unreviewed`;
 }
-document.addEventListener('input', updateDecisions); document.addEventListener('change', updateDecisions);
+document.addEventListener('input', () => { updateDecisions(); saveDraft(); }); document.addEventListener('change', () => { updateDecisions(); saveDraft(); });
 $('#sample').addEventListener('click', () => {
   $('#scope').value = 'Build a five-page portfolio website: Home, About, Work, Services, and Contact. Includes one contact form and two rounds of copy revisions. An online store, multilingual content, and booking integrations are not included.';
   $('#request').value = 'Can you also add an online store for 12 prints?\nPlease connect Calendly so visitors can book a call.\nCan we change the About page headline in our second revision?';
@@ -94,7 +122,7 @@ function downloadChangeOrder() {
 }
 document.addEventListener('click', event => {
   const button = event.target.closest('button'); if (!button) return;
-  if (button.dataset.review) work(async () => { draftParentId = null; await reload(button.dataset.review); $('#scope').value = current.scope; $('#request').value = current.request; $('#confirmed').checked = false; $('#recipient').value = ''; updateDecisions(); });
+  if (button.dataset.review) work(async () => { saveDraft(); draftParentId = null; $('#confirmed').checked = false; $('#recipient').value = ''; await reload(button.dataset.review); updateDecisions(); });
   if (button.dataset.localAction === 'revise') { draftParentId = current.id; $('#scope').value = current.scope; $('#request').value = current.request; render(); $('#sources').scrollIntoView({ block: 'start' }); $('#request').focus(); }
   if (button.dataset.localAction === 'refresh-client') work(async () => { await reload(); });
   if (button.dataset.localAction === 'download') downloadChangeOrder();

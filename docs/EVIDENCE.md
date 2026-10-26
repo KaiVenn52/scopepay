@@ -1,3 +1,11 @@
+# Current evidence — 2026-10-27
+
+ScopePay is submitted: [Devpost](https://devpost.com/software/scopepay-9plmux). [Submission receipt](../evidence/iterations/2026-10-27/devpost-submission.json). Current v0.4.3 local checks and explicit remaining gaps are in the [comprehensive audit](CHAMPIONSHIP-AUDIT-2026-10-27.md). A fresh account-backed read-only query returned UNPAID with exact binding verified, OAuth 200 and details GET 200; zero invoice writes or buyer payment attempts. [Query record](../evidence/iterations/2026-10-27/actual-sandbox-readonly-audit.json).
+
+The video remains unlisted at the owner’s request. Prior claims that the form alone conclusively established compliance are superseded: the formal rules use “publicly visible” and take precedence over conflicting form guidance. Clarification is unresolved.
+
+The following dated entries document earlier states. They are historical, including their then-missing access and submission gates.
+
 # Evidence and next gates
 
 ## Current integration verification — 2026-10-24, v0.4.2
@@ -118,7 +126,7 @@ Browser plugin was unavailable; regular Playwright used a fresh headless install
 
 The original screenshots above show offline analysis and simulated payments. New model-backed screenshots were also inspected with `view_image`: [real AI review](../evidence/ai-desktop-review.png), [real AI mobile entry](../evidence/ai-mobile-top.png), and [real AI approved invoice](../evidence/ai-desktop-approved.png). New screenshots correspond to real local retrieval, but every shown USD 240.00 invoice remains simulated. No screenshot establishes a PayPal sandbox payment or production usage.
 
-## Exact remaining gates
+## Historical remaining gates — 2026-10-16
 
 1. **PayPal sandbox:** the user signs in to PayPal Developer, confirms business sandbox access, creates/selects a sandbox REST app, and places credentials only in the ignored local `.env`. A distinct personal sandbox buyer must be available. Run OAuth → create draft → issue → sandbox buyer payment → detail refresh. Record sanitized invoice ID, response statuses and payment outcome. Configuration presence alone does not clear this gate. No `.env` or PayPal environment configuration was present when checked this round.
 2. **Competition access:** user confirms age and absence of disqualifying affiliations/conflicts; verify Devpost join state. Malaysia is not in the named exclusion list, but personal eligibility has not been certified.

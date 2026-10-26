@@ -1,11 +1,11 @@
 # ScopePay — final submission review
 
-Reviewed 2026-10-25, Asia/Kuala_Lumpur. **Prepared for final human review; not submitted.**
+Reviewed 2026-10-25; submitted 2026-10-27, Asia/Kuala_Lumpur. **SUBMITTED — confirmed by Devpost success banner and Submitted to event listing.**
 
 ## Concrete entry
 
 - Event: PayPal AI Hackathon, Devpost event 31302.
-- Draft: 1259804, ScopePay; four of five steps completed. The fifth step is the final agreement and Submit project action.
+- Submission: 1259804, ScopePay. Final terms accepted and Submit project completed after explicit owner approval on 2026-10-27.
 - Final action page: https://devpost.com/submit-to/31302-paypal-ai-hackathon/manage/submissions/1259804-scopepay/finalization
 - Preview: https://devpost.com/software/scopepay-9plmux
 - Source: https://github.com/KaiVenn52/scopepay (public, MIT).
@@ -14,7 +14,7 @@ Reviewed 2026-10-25, Asia/Kuala_Lumpur. **Prepared for final human review; not s
 
 ## What was checked
 
-The actual event Project details form explicitly permits **public or unlisted with no password**. The draft embeds the video successfully. The earlier interpretation requiring the literal Public setting was corrected; the video remains unlisted.
+The actual event Project details form explicitly permits **public or unlisted with no password**. The draft embeds the video successfully. On 2026-10-27 the formal-rules precedence clause was identified; the form’s unlisted guidance alone does not settle compliance. The video remains unlisted per owner instruction while clarification is pending.
 
 The saved preview has one Inspiration section, the current 45-test count, eight actually used technology tags, the repository link, three real application screenshots with accurate captions, and the explicit UNPAID / buyer-checkout-unverified disclosure. The placeholder project thumbnail was replaced with a 3:2 crop of an actual product screenshot. Registration, solo participation, Malaysia residence and eligibility were confirmed; terms were accepted only after the entrant approved that exact registration action.
 
@@ -30,4 +30,4 @@ The additional form contains Individual / Malaysia / New project; N/A for Canadi
 
 ## Final boundary
 
-The final agreement checkbox is unchecked and Submit project has not been pressed. Final submission needs explicit approval of this concrete entry and the action-time final terms. Registration approval and source/video publication approval do not authorize that final step.
+The owner explicitly confirmed submission and agreement to final terms on 2026-10-27. The checkbox was checked and Submit project clicked. Devpost displayed "Project submitted!" and listed PayPal AI Hackathon under SUBMITTED TO. Evidence: evidence/iterations/2026-10-27/devpost-submission.json and devpost-submitted.png. The published video remains unlisted. No real-funds transaction was performed. The entry can still be edited until November 13, 2026 at 04:00 Asia/Kuala_Lumpur.

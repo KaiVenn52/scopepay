@@ -13,3 +13,7 @@ Jina Reader returned a challenge page (403), so its output was not accepted as r
 ## Actual form clarification
 
 The authenticated Project details page for this event explicitly states: "Visibility: Set to public or unlisted with no password." That event-specific guidance was captured in `devpost-video-guidance.png`. The current unlisted, no-password video is accepted by that instruction; the earlier interpretation requiring the literal YouTube Public setting was too strict. The owner's unlisted preference remains in force.
+
+## Superseding check — 2026-10-27
+
+The form guidance above does not conclusively settle compliance: official rule 4 uses “publicly visible”, while rule 11.4 gives formal rules precedence over form disclosures. The video stays unlisted by owner instruction. Written organizer clarification remains pending; do not describe this point as confirmed compliant.

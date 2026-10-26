@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-27",
+  "result": "PASS",
+  "providerEvidence": "INJECTED CONTRACT RESPONSES ONLY — not actual PayPal sandbox access or payment",
+  "checks": [
+    "uncertain create exposes recovery form and blocks new invoice",
+    "invoice recovered through authenticated-read adapter without a second invoice write",
+    "partial payment stays unsettled",
+    "verified invoice binding displayed",
+    "no browser page errors or console warnings/errors"
+  ],
+  "invoiceWriteCount": 1,
+  "recoveryReadCount": 1,
+  "realPayPalValidated": false
+}

@@ -10,7 +10,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Source link and manifest verification failed.'
 New-Item -ItemType Directory -Path $stageRoot -ErrorAction Stop | Out-Null
 function Copy-PublicSource([string] $directory) {
     foreach ($entry in Get-ChildItem -LiteralPath $directory -Force) {
-        if ($excludedNames -contains $entry.Name -or ($entry.Name -like '.env*' -and $entry.Name -ne '.env.example')) { continue }
+        if ($excludedNames -contains $entry.Name -or $entry.Name -eq 'entrant-confirmation.json' -or ($entry.Name -like '.env*' -and $entry.Name -ne '.env.example')) { continue }
         if ($entry.PSIsContainer) { Copy-PublicSource $entry.FullName; continue }
         if ($entry.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw 'Refusing to package a source symlink.' }
         $relative = $entry.FullName.Substring($projectRoot.Length).TrimStart([char[]]'\/')

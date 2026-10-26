@@ -1,0 +1,45 @@
+{
+  "result": "BLOCKED",
+  "appVersion": "0.4.3",
+  "checkedAt": "2026-10-26T16:37:26.366Z",
+  "checks": [
+    {
+      "gate": "current-local-build",
+      "passed": true
+    },
+    {
+      "gate": "account-backed-sandbox-run",
+      "passed": true
+    },
+    {
+      "gate": "public-open-source-repository",
+      "passed": true
+    },
+    {
+      "gate": "public-working-demo-video",
+      "passed": false
+    },
+    {
+      "gate": "eligibility-and-registration",
+      "passed": true
+    },
+    {
+      "gate": "entry-materials-reviewed",
+      "passed": true
+    },
+    {
+      "gate": "within-submission-window",
+      "passed": true
+    }
+  ],
+  "finalSubmissionAuthorized": false,
+  "qualityChecks": [
+    {
+      "gate": "buyer-checkout-and-paid-invoice",
+      "passed": false,
+      "requiredByOfficialSubmissionRules": false,
+      "note": "A disclosed account-backed UNPAID invoice can demonstrate invoicing. It never proves buyer payment or settlement."
+    }
+  ],
+  "limitation": "Local consistency checks plus explicit human review attestations. Public URLs and receipts are not independently authenticated by this command. It never publishes, registers or submits."
+}

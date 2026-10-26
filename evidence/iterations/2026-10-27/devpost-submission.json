@@ -1,0 +1,19 @@
+{
+  "result": "SUBMITTED",
+  "observedOn": "2026-10-27",
+  "timezone": "Asia/Kuala_Lumpur",
+  "event": "PayPal AI Hackathon",
+  "eventId": 31302,
+  "project": "ScopePay",
+  "submissionId": 1259804,
+  "url": "https://devpost.com/software/scopepay-9plmux",
+  "authorization": "User explicitly confirmed submission and final terms in this chat.",
+  "finalTermsAccepted": true,
+  "submitProjectClicked": true,
+  "confirmationText": "Project submitted! Continue to edit your project until the hackathon deadline: November 12, 2026 at 03:00pm EST.",
+  "submittedToVisible": "PayPal AI Hackathon",
+  "deadlineMalaysia": "2026-11-13T04:00:00+08:00",
+  "screenshot": "evidence/iterations/2026-10-27/devpost-submitted.png",
+  "videoVisibility": "unlisted",
+  "paymentLimitation": "Latest verified invoice status remains UNPAID; buyer checkout/payment unverified."
+}

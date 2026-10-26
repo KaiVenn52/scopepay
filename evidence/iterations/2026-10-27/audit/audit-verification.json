@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "date": "2026-10-27",
+  "appVersion": "0.4.3",
+  "checks": [
+    "cross-origin writes, wrong content types, malformed/oversize JSON and private-file reads rejected",
+    "CSP, frame isolation, nosniff and no-referrer headers present",
+    "keyboard entry focuses the labeled home link",
+    "source and request HTML are rendered literally without injected elements or script execution",
+    "every rendered form control has a label and document language is explicit",
+    "no horizontal overflow at 320, 390, 768, 1024 and 1440 pixels",
+    "restored edited sources still require reanalysis before approval",
+    "no browser page errors or console warnings/errors"
+  ],
+  "errors": [],
+  "providerEvidence": "offline analysis and mock payments only; real AI is verified separately",
+  "browser": "Installed Chrome, fresh headless profile; Browser plugin not available",
+  "limitations": "Targeted security and accessibility checks, not a penetration-test certification or full WCAG audit."
+}

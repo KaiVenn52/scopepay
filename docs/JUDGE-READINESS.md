@@ -1,6 +1,6 @@
 # ScopePay judging readiness
 
-Checked 2026-10-23 against [official rules](https://paypalaihackathon.devpost.com/rules). An evidence map, not a predicted score or prize promise.
+Updated 2026-10-27 against [official rules](https://paypalaihackathon.devpost.com/rules). An evidence map, not a predicted score or prize promise.
 
 | Judging dimension | Demonstrable strength | Material gap |
 | --- | --- | --- |
@@ -8,7 +8,7 @@ Checked 2026-10-23 against [official rules](https://paypalaihackathon.devpost.co
 | Design | Coherent source → review → client → invoice workflow, desktop and mobile checked. | Independent usability and assistive-technology testing. |
 | Potential impact | Specific freelancer problem; also protects the client from charges for included work. | Real users and measured outcomes have not been established. |
 | Innovation | Traceable connection between agreement, request, billing decision, client agreement and invoice reference. | No uniqueness or competitor-superiority claim is established. |
-| Presentation | Real AI, distinct client view, acceptance and objection, clear mock/sandbox separation. | Final real-sandbox video and public artifacts. |
+| Presentation | Real AI, distinct client view, acceptance and objection, clear mock/sandbox separation. | Real sandbox video and public artifacts exist; buyer checkout remains unverified. |
 
 ## The story to demonstrate
 
@@ -24,13 +24,13 @@ PayPal must be central in the final demo: the reviewed line and frozen reference
 - Actual local model and synthetic regression evidence: verified.
 - Client acceptance/refusal and invoice guard: verified locally; identity unverified.
 - Real sandbox invoice: actual OAuth, creation, issuance and exact-bound details queries verified; buyer payment remains unverified and the invoice is UNPAID.
-- Devpost PayPal registration and personal eligibility: confirmed. The authorized CAPTCHA passed and draft 1259804 reached 4/5 steps.
+- Devpost PayPal registration and personal eligibility: confirmed. Submission 1259804 completed after explicit final approval; Devpost confirmed “Project submitted!”.
 - Public MIT repository: published, anonymously accessible, Windows/Ubuntu CI passed.
-- YouTube walkthrough: uploaded, 133.53 seconds, actual AI and provider query; unlisted at the owner's request. The actual event form explicitly allows unlisted video with no password.
-- Final submission: not performed.
+- YouTube walkthrough: uploaded, 133.53 seconds, actual AI and provider query; unlisted at the owner's request. The form allows unlisted, but controlling-rule wording remains ambiguous; see the 2026-10-27 audit.
+- Final submission: completed 2026-10-27; see the submission receipt.
 
 No interviews, usage numbers, recovered revenue, audience reach, independent accuracy, live payments or prize likelihood are invented.
 
 ## Submission review package
 
-The current entry copy, judge setup, and release gates are in [FORM-COPY](../submission/FORM-COPY.md), [JUDGE-QUICKSTART](../submission/JUDGE-QUICKSTART.md) and [RELEASE-CHECKLIST](../submission/RELEASE-CHECKLIST.md). The local readiness command now distinguishes formal material requirements from the unfinished buyer-payment quality checkpoint. A real bound UNPAID invoice needs explicit reviewed disclosure; an unlisted video needs reviewed event guidance and anonymous accessibility. Public source/license, eligibility/registration, local build QA and the submission window pass. Buyer PAID is an internal quality checkpoint, not a separately quoted official rule. These are consistency checks with review attestations, not independent authentication of every remote claim.
+The current entry copy, judge setup, and release gates are in [FORM-COPY](../submission/FORM-COPY.md), [JUDGE-QUICKSTART](../submission/JUDGE-QUICKSTART.md) and [RELEASE-CHECKLIST](../submission/RELEASE-CHECKLIST.md). The local readiness command now distinguishes formal material requirements from the unfinished buyer-payment quality checkpoint. A real bound UNPAID invoice needs explicit reviewed disclosure; an unlisted video needs reviewed event guidance and anonymous accessibility. Submission is complete. Current local build QA passes, but unlisted-rule ambiguity is explicitly unresolved. Buyer PAID is an internal quality checkpoint, not a separately quoted official rule. These are consistency checks with review attestations, not independent authentication of every remote claim.

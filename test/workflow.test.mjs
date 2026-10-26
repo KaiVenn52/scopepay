@@ -4,6 +4,30 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { createApp } from '../server.mjs';
+import http from 'node:http';
+
+test('HTTP validates object bodies and preserves UTF-8 when a character spans network chunks', async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'scopepay-utf8-'));
+  const server = await createApp({ directory, env: {} });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  try {
+    for (const value of [null, [], 'wrong', 42]) {
+      const response = await fetch(base + '/api/reviews', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(value) });
+      assert.equal(response.status, 400); assert.match((await response.json()).error, /must be an object/);
+    }
+    const scope = '网站设计。No online store. Café copy is included.';
+    const body = Buffer.from(JSON.stringify({ scope, request: 'Add a store.' }));
+    const split = body.indexOf(Buffer.from('网')) + 1;
+    const result = await new Promise((resolve, reject) => {
+      const req = http.request(base + '/api/reviews', { method: 'POST', headers: { 'Content-Type': 'application/json' } }, res => {
+        let text = ''; res.setEncoding('utf8'); res.on('data', chunk => text += chunk); res.on('end', () => resolve({ status: res.statusCode, body: JSON.parse(text) }));
+      });
+      req.on('error', reject); req.write(body.subarray(0, split)); setTimeout(() => req.end(body.subarray(split)), 10);
+    });
+    assert.equal(result.status, 200); assert.equal(result.body.scope, scope); assert.equal(result.body.scope.includes('�'), false);
+  } finally { await new Promise(resolve => server.close(resolve)); await rm(directory, { recursive: true, force: true }); }
+});
 
 test('HTTP workflow persists approval, prevents duplicate invoices, distinguishes partial from paid and survives restart', async () => {
   const directory = await mkdtemp(path.join(tmpdir(), 'scopepay-test-'));

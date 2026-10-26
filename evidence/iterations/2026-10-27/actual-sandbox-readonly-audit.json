@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "checkedAt": "2026-10-26T16:34:44.656Z",
+  "accountBacked": true,
+  "status": "UNPAID",
+  "settled": false,
+  "exactBindingVerified": true,
+  "invoiceWrites": 0,
+  "buyerPaymentAttempted": false,
+  "localDatabaseChanged": false,
+  "calls": [
+    {
+      "method": "POST",
+      "path": "/v1/oauth2/token",
+      "httpStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v2/invoicing/invoices/[existing-id]",
+      "httpStatus": 200
+    }
+  ]
+}

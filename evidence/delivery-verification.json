@@ -1,7 +1,7 @@
 {
-  "date": "2026-10-25",
+  "date": "2026-10-27",
   "timezone": "Asia/Kuala_Lumpur",
-  "filesHashed": 221,
+  "filesHashed": 252,
   "brokenLocalLinks": 0,
   "manifest": "evidence/SHA256SUMS.txt",
   "excludes": [

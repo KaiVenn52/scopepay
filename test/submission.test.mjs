@@ -56,3 +56,11 @@ test('unlisted video needs reviewed event guidance and private video always bloc
   state.video.visibility = 'private';
   assert.equal(submissionReadiness(state, { ...options, receipt }).result, 'BLOCKED');
 });
+
+test('known conflict between form guidance and controlling rules blocks unlisted readiness until clarified', () => {
+  const { state, receipt } = fixture();
+  Object.assign(state.video, { visibility: 'unlisted', eventAllowsUnlistedReviewed: true, rulesConflictUnresolved: true });
+  assert.equal(submissionReadiness(state, { ...options, receipt }).result, 'BLOCKED');
+  state.video.rulesConflictUnresolved = false;
+  assert.equal(submissionReadiness(state, { ...options, receipt }).result, 'READY_FOR_FINAL_HUMAN_REVIEW');
+});
